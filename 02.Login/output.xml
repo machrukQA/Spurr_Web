@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210809 16:23:32.174" rpa="false" schemaversion="2">
+<suite id="s1" name="negLogin" source="/Users/machruk/PycharmProjects/Spurr_Web/02.Login/negLogin.robot">
+<kw name="Open GoSpurr.com" library="res_Signup" type="SETUP">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210809 16:23:32.310" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
+<status status="PASS" starttime="20210809 16:23:32.310" endtime="20210809 16:23:36.779"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210809 16:23:36.779" endtime="20210809 16:23:36.931"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_Signup}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210809 16:23:36.932" endtime="20210809 16:23:36.995"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:32.310" endtime="20210809 16:23:36.996"/>
+</kw>
+<test id="s1-t1" name="Verify warning message is displayed when login without username">
+<kw name="Verify warning message is displayed when login without username">
+<kw name="Input Password Login" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Pwd}</arg>
+<arg>${valid_Pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:36.997" level="INFO">Typing text 'Qwerty123' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210809 16:23:36.997" endtime="20210809 16:23:37.301"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:36.997" endtime="20210809 16:23:37.302"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:37.302" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210809 16:23:37.302" endtime="20210809 16:23:37.674"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:37.302" endtime="20210809 16:23:37.674"/>
+</kw>
+<kw name="Reload Page" library="Selenium2Library">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20210809 16:23:37.674" endtime="20210809 16:23:38.124"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:36.997" endtime="20210809 16:23:38.124"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:36.996" endtime="20210809 16:23:38.125"/>
+</test>
+<test id="s1-t2" name="Verify warning message is displayed when login without password">
+<kw name="Verify warning message is displayed when login without password">
+<kw name="Input Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210809 16:23:38.126" endtime="20210809 16:23:38.149"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${valid_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:38.149" level="INFO">Typing text 'machruk4@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210809 16:23:38.149" endtime="20210809 16:23:38.284"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.126" endtime="20210809 16:23:38.284"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:38.284" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210809 16:23:38.284" endtime="20210809 16:23:38.335"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.284" endtime="20210809 16:23:38.335"/>
+</kw>
+<kw name="Reload Page" library="Selenium2Library">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20210809 16:23:38.335" endtime="20210809 16:23:38.433"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.126" endtime="20210809 16:23:38.433"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.125" endtime="20210809 16:23:38.433"/>
+</test>
+<test id="s1-t3" name="Verify warning message is displayed when login with invalid username">
+<kw name="Verify warning message is displayed when login with invalid username">
+<kw name="Input Invalid Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210809 16:23:38.434" endtime="20210809 16:23:38.453"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${invalid_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:38.453" level="INFO">Typing text '@gospurr' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210809 16:23:38.453" endtime="20210809 16:23:38.552"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.434" endtime="20210809 16:23:38.552"/>
+</kw>
+<kw name="Input Password Login" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Pwd}</arg>
+<arg>${valid_Pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:38.553" level="INFO">Typing text 'Qwerty123' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210809 16:23:38.552" endtime="20210809 16:23:38.614"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.552" endtime="20210809 16:23:38.614"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:38.614" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210809 16:23:38.614" endtime="20210809 16:23:38.782"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.614" endtime="20210809 16:23:38.782"/>
+</kw>
+<kw name="Reload Page" library="Selenium2Library">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20210809 16:23:38.782" endtime="20210809 16:23:38.879"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.434" endtime="20210809 16:23:38.879"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.433" endtime="20210809 16:23:38.880"/>
+</test>
+<test id="s1-t4" name="Verify warning message is displayed when login with invalid password">
+<kw name="Verify warning message is displayed when login with invalid password">
+<kw name="Input Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210809 16:23:38.881" endtime="20210809 16:23:38.899"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${valid_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:38.899" level="INFO">Typing text 'machruk4@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210809 16:23:38.899" endtime="20210809 16:23:38.991"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.881" endtime="20210809 16:23:38.991"/>
+</kw>
+<kw name="Input Invalid Password Login" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Pwd}</arg>
+<arg>${invalid_Pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:38.993" level="INFO">Typing text 'jackqwerty' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210809 16:23:38.992" endtime="20210809 16:23:39.048"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.991" endtime="20210809 16:23:39.049"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:39.049" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210809 16:23:39.049" endtime="20210809 16:23:39.098"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:39.049" endtime="20210809 16:23:39.098"/>
+</kw>
+<kw name="Reload Page" library="Selenium2Library">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20210809 16:23:39.098" endtime="20210809 16:23:39.186"/>
+</kw>
+<kw name="Valid Login" library="res_Signup">
+<kw name="Input Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210809 16:23:39.187" endtime="20210809 16:23:39.203"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${valid_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:39.203" level="INFO">Typing text 'machruk4@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210809 16:23:39.203" endtime="20210809 16:23:39.291"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:39.187" endtime="20210809 16:23:39.291"/>
+</kw>
+<kw name="Input Password Login" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Pwd}</arg>
+<arg>${valid_Pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:39.291" level="INFO">Typing text 'Qwerty123' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210809 16:23:39.291" endtime="20210809 16:23:39.349"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:39.291" endtime="20210809 16:23:39.349"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210809 16:23:39.350" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210809 16:23:39.350" endtime="20210809 16:23:39.399"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:39.349" endtime="20210809 16:23:39.399"/>
+</kw>
+<kw name="Verify Login is successfully" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210809 16:23:39.400" endtime="20210809 16:23:42.143"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210809 16:23:42.148" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
+<status status="PASS" starttime="20210809 16:23:42.144" endtime="20210809 16:23:42.148"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:39.399" endtime="20210809 16:23:42.148"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:39.186" endtime="20210809 16:23:42.148"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.880" endtime="20210809 16:23:42.148"/>
+</kw>
+<status status="PASS" starttime="20210809 16:23:38.880" endtime="20210809 16:23:42.148"/>
+</test>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210809 16:23:42.149" endtime="20210809 16:23:42.221"/>
+</kw>
+<doc>Verify Login with invalid credentials displays a warning message</doc>
+<status status="PASS" starttime="20210809 16:23:32.175" endtime="20210809 16:23:42.221"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="negLogin">negLogin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

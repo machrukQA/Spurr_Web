@@ -1,0 +1,14 @@
+==============================================================================
+Suites                                                                        
+==============================================================================
+Suites.Outlet :: Verify the features On Outlet Menu are working properly      
+==============================================================================
+Verify the features On Outlet Menu are working properly               | PASS |
+------------------------------------------------------------------------------
+Suites.Outlet :: Verify the features On Outlet Menu are working pr... | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+Suites                                                                | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+Output:  /Users/machruk/PycharmProjects/Spurr_Web/parallel_result/pabot_results/0/output.xml

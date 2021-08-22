@@ -1,0 +1,20 @@
+SET @member_id = "7dc50101-86fb-11eb-8195-42010a715005";
+DELETE FROM `transaction_activities` WHERE `activities_member_id`=@member_id;
+DELETE FROM `loyalty_master_member_stamps` WHERE `member_stamps_member_id`=@member_id;
+DELETE FROM `master_customer` WHERE `customer_member_id`=@member_id;
+-- DELETE FROM `master_member_phones` WHERE `member_phones_member_id`=@member_id;
+-- DELETE FROM `master_member_devices` WHERE `devices_member_id`=@member_id;
+DELETE FROM `transaction_notification` WHERE `notification_member_id`=@member_id;
+DELETE FROM `loyalty_transaction_redeem` WHERE `redeem_member_id`=@member_id;
+-- DELETE FROM `transaction_session` WHERE `session_member_id`=@member_id;
+DELETE FROM `loyalty_transaction_rewards` WHERE rewards_stamps_id IN (SELECT stamps_id FROM loyalty_master_stamps WHERE stamps_member_id=@member_id);
+DELETE FROM `loyalty_history_stamps` WHERE `stamps_member_id`=@member_id;
+DELETE FROM `loyalty_master_stamps` WHERE `stamps_member_id`=@member_id;
+DELETE FROM `transaction_feedback` WHERE `feedback_member_id`=@member_id;
+DELETE FROM `loyalty_transaction_checkin` WHERE `checkin_member_id`=@member_id;
+DELETE FROM `campaign_transaction_engagement` WHERE `engagement_member_id`=@member_id;
+DELETE FROM `campaign_transaction_redeem` WHERE `redeem_member_id`=@member_id;
+UPDATE master_member SET member_value=0, member_stamp=0, member_spending=0 WHERE `member_id`=@member_id;
+-- DELETE FROM `master_member` WHERE `member_id`=@member_id;
+
+SELECT * FROM master_customer WHERE customer_member_id=@member_id;

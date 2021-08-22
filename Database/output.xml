@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210809 13:54:09.954" rpa="false" schemaversion="2">
+<suite id="s1" name="connectToDB" source="/Users/machruk/PycharmProjects/Spurr_Web/Database/connectToDB.robot">
+<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20210809 13:54:09.986" level="INFO">Connecting using : pymysql.connect(db=shopick_v2, user=qa, passwd=DWkg8yNJjZMYFwgd, host=34.68.209.108, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20210809 13:54:09.978" endtime="20210809 13:54:10.940"/>
+</kw>
+<test id="s1-t1" name="tes1">
+<kw name="Check Member id Present in Master_Member Table">
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<arg>select member_id from shopick_v2.master_member where member_id='${memberId}';</arg>
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<msg timestamp="20210809 13:54:10.944" level="INFO">Executing : Check If Exists In Database  |  select member_id from shopick_v2.master_member where member_id='076811a1-dcf1-11eb-bce9-42010a715007'; </msg>
+<msg timestamp="20210809 13:54:10.944" level="INFO">Executing : Query  |  select member_id from shopick_v2.master_member where member_id='076811a1-dcf1-11eb-bce9-42010a715007'; </msg>
+<status status="PASS" starttime="20210809 13:54:10.943" endtime="20210809 13:54:11.421"/>
+</kw>
+<status status="PASS" starttime="20210809 13:54:10.942" endtime="20210809 13:54:11.422"/>
+</kw>
+<status status="PASS" starttime="20210809 13:54:10.941" endtime="20210809 13:54:11.423"/>
+</test>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20210809 13:54:11.427" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20210809 13:54:11.426" endtime="20210809 13:54:11.427"/>
+</kw>
+<status status="PASS" starttime="20210809 13:54:09.955" endtime="20210809 13:54:11.427"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="connectToDB">connectToDB</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
