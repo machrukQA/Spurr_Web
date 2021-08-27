@@ -25,7 +25,8 @@ ${SucMsg_phoneVerified}     Your phone is verified.
 ${marking_verified}         Verified!
 ${SucMsg_EmailVerified}     Your email is verified.
 
-
+### Download Receipt ###
+${btn_dwld}                 xpath://body[1]/ul[1]/li[2]/section[3]/div[3]/div[3]/table[1]/tbody[1]/tr[1]/td[4]/a[1]
 
 
 *** Keywords ***
@@ -79,6 +80,13 @@ Email is Verified
     Page Should Contain                     ${SucMsg_EmailVerified}
     Click Element                           ${btn_closeSucMsg}
     Sleep                                   2
+
+
+### Download Receipt ###
+Click Download Receipt button
+    wait until element is enabled           ${btn_dwld}                 ${delay}
+    click element                           ${btn_dwld}
+
 
 
 

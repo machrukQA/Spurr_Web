@@ -13,13 +13,14 @@ ${DBPass}       DWkg8yNJjZMYFwgd
 ${DBHost}       34.68.209.108
 ${DBPort}       3306
 ${memberId}     076811a1-dcf1-11eb-bce9-42010a715007
+${camp_secVisit}    SecondVisitPromo_380739
 
 
 
 
 *** Test Cases ***
 tes1
-    Check Member id Present in Master_Member Table
+    Delete Loyalty
 
 
 
@@ -67,8 +68,9 @@ Delete Campaign Engagement Transaction
     ${del_Campgn_Transac_Engg}  execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_member_id= '${memberId}';
 Delete Campaign Redeem Transaction
     ${del_Transac_Checkin}      execute sql string      Delete from shopick_v2.campaign_transaction_redeem where redeem_member_id= '${memberId}';
-
-Delete Verified Phone
-
+Delete Loyalty
+    ${del_loyalty}              execute sql string      Delete from shopick_v2.loyalty_master_loyalty WHERE loyalty_merchant_id='ea998a56-dcf1-11eb-bce9-42010a715007';
+Delete Campaign
+    ${del_campaign}             execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${camp_secVisit}';
 Update Database
     ${update}                   execute sql string      Update shopick_v2.master_member set member_value=0, member_stamp=0, member_spending=0 where member_id= '${memberId}';

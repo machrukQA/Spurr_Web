@@ -1,285 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210809 12:03:06.620" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210827 16:13:34.753" rpa="false" schemaversion="2">
 <suite id="s1" name="setupBrand" source="/Users/machruk/PycharmProjects/Spurr_Web/03.SetupBrand/setupBrand.robot">
 <kw name="Open GoSpurr.com" library="res_Signup" type="SETUP">
-<kw name="Open Browser" library="SeleniumLibrary">
+<kw name="Open Browser" library="Selenium2Library">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20210809 12:03:06.742" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
-<status status="PASS" starttime="20210809 12:03:06.741" endtime="20210809 12:03:12.115"/>
+<msg timestamp="20210827 16:13:34.889" level="INFO">Opening browser 'firefox' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
+<msg timestamp="20210827 16:13:34.890" level="INFO">Firefox driver log is always forced to to: /Users/machruk/PycharmProjects/Spurr_Web/03.SetupBrand/geckodriver-1.log</msg>
+<status status="PASS" starttime="20210827 16:13:34.889" endtime="20210827 16:13:40.244"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210809 12:03:12.115" endtime="20210809 12:03:12.252"/>
+<status status="PASS" starttime="20210827 16:13:40.245" endtime="20210827 16:13:40.719"/>
 </kw>
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${btn_Signup}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:12.252" endtime="20210809 12:03:12.311"/>
+<status status="PASS" starttime="20210827 16:13:40.720" endtime="20210827 16:13:40.756"/>
 </kw>
-<kw name="Valid Login" library="res_Signup">
-<kw name="Input Username" library="res_Signup">
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<kw name="Valid Login with New Password" library="res_Signup">
+<kw name="Input New Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${field_Usrname}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:12.311" endtime="20210809 12:03:12.331"/>
+<status status="PASS" starttime="20210827 16:13:40.757" endtime="20210827 16:13:40.770"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
+<kw name="Input Text" library="Selenium2Library">
 <arg>${field_Usrname}</arg>
 <arg>${valid_Email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:12.332" level="INFO">Typing text 'machruk4@gospurr.com' into text field 'id:email'.</msg>
-<status status="PASS" starttime="20210809 12:03:12.331" endtime="20210809 12:03:12.600"/>
+<msg timestamp="20210827 16:13:40.771" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210827 16:13:40.770" endtime="20210827 16:13:40.800"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:12.311" endtime="20210809 12:03:12.601"/>
+<status status="PASS" starttime="20210827 16:13:40.756" endtime="20210827 16:13:40.800"/>
 </kw>
-<kw name="Input Password Login" library="res_Signup">
-<kw name="Input Text" library="SeleniumLibrary">
+<kw name="New Password" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
 <arg>${field_Pwd}</arg>
-<arg>${valid_Pwd}</arg>
+<arg>${newPwd}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:12.602" level="INFO">Typing text 'Qwerty123' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20210809 12:03:12.601" endtime="20210809 12:03:12.700"/>
+<msg timestamp="20210827 16:13:40.801" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210827 16:13:40.800" endtime="20210827 16:13:40.831"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:12.601" endtime="20210809 12:03:12.700"/>
+<status status="PASS" starttime="20210827 16:13:40.800" endtime="20210827 16:13:40.832"/>
 </kw>
 <kw name="Click Login button" library="res_Signup">
-<kw name="Click Element" library="SeleniumLibrary">
+<kw name="Click Element" library="Selenium2Library">
 <arg>${btn_Signin}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:12.700" level="INFO">Clicking element 'id:label-button'.</msg>
-<status status="PASS" starttime="20210809 12:03:12.700" endtime="20210809 12:03:13.088"/>
+<msg timestamp="20210827 16:13:40.832" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210827 16:13:40.832" endtime="20210827 16:13:41.056"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:12.700" endtime="20210809 12:03:13.088"/>
+<status status="PASS" starttime="20210827 16:13:40.832" endtime="20210827 16:13:41.056"/>
 </kw>
 <kw name="Verify Login is successfully" library="res_Signup">
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${menu_Dshbrd}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:13.089" endtime="20210809 12:03:16.477"/>
+<status status="PASS" starttime="20210827 16:13:41.056" endtime="20210827 16:13:42.869"/>
 </kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<kw name="Page Should Contain Element" library="Selenium2Library">
 <arg>${menu_Dshbrd}</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210809 12:03:16.482" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
-<status status="PASS" starttime="20210809 12:03:16.478" endtime="20210809 12:03:16.482"/>
+<msg timestamp="20210827 16:13:42.872" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
+<status status="PASS" starttime="20210827 16:13:42.869" endtime="20210827 16:13:42.872"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:13.088" endtime="20210809 12:03:16.482"/>
+<status status="PASS" starttime="20210827 16:13:41.056" endtime="20210827 16:13:42.872"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:12.311" endtime="20210809 12:03:16.482"/>
+<status status="PASS" starttime="20210827 16:13:40.756" endtime="20210827 16:13:42.872"/>
 </kw>
-<kw name="Delay" library="res_Signup">
+<kw name="Waiting to Load" library="res_Signup">
 <kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
+<arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210809 12:03:19.486" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210809 12:03:16.483" endtime="20210809 12:03:19.490"/>
+<msg timestamp="20210827 16:13:47.875" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210827 16:13:42.872" endtime="20210827 16:13:47.875"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:16.482" endtime="20210809 12:03:19.493"/>
+<status status="PASS" starttime="20210827 16:13:42.872" endtime="20210827 16:13:47.875"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:06.741" endtime="20210809 12:03:19.493"/>
+<status status="PASS" starttime="20210827 16:13:34.888" endtime="20210827 16:13:47.875"/>
 </kw>
 <test id="s1-t1" name="Verify setup brand features is working properly">
 <kw name="Verify setup brand features is working properly">
 <kw name="Select Business Type" library="res_SetupBrand">
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${field_BrandName}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:19.504" endtime="20210809 12:03:19.549"/>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210827 16:13:58.275" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210827 16:13:58.013" endtime="20210827 16:13:58.275"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<msg timestamp="20210827 16:13:58.278" level="FAIL">Element with locator 'id:brand_name' not found.</msg>
+<status status="FAIL" starttime="20210827 16:13:47.877" endtime="20210827 16:13:58.278"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <arg>${field_BusinessType}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210809 12:03:19.550" endtime="20210809 12:03:19.575"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.278" endtime="20210827 16:13:58.278"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
+<kw name="Click Element" library="Selenium2Library">
 <arg>${field_BusinessType}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:19.576" level="INFO">Clicking element 'id:select2-business-type-container'.</msg>
-<status status="PASS" starttime="20210809 12:03:19.575" endtime="20210809 12:03:20.079"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.278" endtime="20210827 16:13:58.278"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
+<kw name="Input Text" library="Selenium2Library">
 <arg>${input_BudinessType}</arg>
 <arg>${businessType}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:20.080" level="INFO">Typing text 'Food &amp; Beverage' into text field 'xpath://input[@class='select2-search__field']'.</msg>
-<status status="PASS" starttime="20210809 12:03:20.080" endtime="20210809 12:03:20.262"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.278" endtime="20210827 16:13:58.278"/>
 </kw>
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${slct_BusinessType}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:20.262" endtime="20210809 12:03:20.277"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.278" endtime="20210827 16:13:58.278"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
+<kw name="Click Element" library="Selenium2Library">
 <arg>${slct_BusinessType}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:20.278" level="INFO">Clicking element 'xpath://*[@id='select2-business-type-results']//li[contains(text(),'Food &amp; Beverage')]'.</msg>
-<status status="PASS" starttime="20210809 12:03:20.277" endtime="20210809 12:03:20.373"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.278" endtime="20210827 16:13:58.278"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:19.503" endtime="20210809 12:03:20.373"/>
+<status status="FAIL" starttime="20210827 16:13:47.877" endtime="20210827 16:13:58.279"/>
 </kw>
 <kw name="Input Brand Name" library="res_SetupBrand">
-<kw name="Generate Random String" library="String">
-<var>${RANDOM}</var>
-<arg>4</arg>
-<arg>[NUMBERS]</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20210809 12:03:20.374" level="INFO">${RANDOM} = 1501</msg>
-<status status="PASS" starttime="20210809 12:03:20.374" endtime="20210809 12:03:20.374"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${field_BrandName}</arg>
-<arg>Auto${brandName} ${RANDOM}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:20.374" level="INFO">Typing text 'AutoBrand 1501' into text field 'id:brand_name'.</msg>
-<status status="PASS" starttime="20210809 12:03:20.374" endtime="20210809 12:03:20.468"/>
-</kw>
-<status status="PASS" starttime="20210809 12:03:20.373" endtime="20210809 12:03:20.468"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.279" endtime="20210827 16:13:58.279"/>
 </kw>
 <kw name="Select Logo" library="res_SetupBrand">
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>${btn_UploadLogo}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:20.469" endtime="20210809 12:03:20.565"/>
-</kw>
-<kw name="Choose File" library="SeleniumLibrary">
-<arg>${btn_UploadLogo}</arg>
-<arg>${photoFile}</arg>
-<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
-<msg timestamp="20210809 12:03:20.566" level="INFO">Sending /Users/machruk/Documents/Gift.png to browser.</msg>
-<status status="PASS" starttime="20210809 12:03:20.565" endtime="20210809 12:03:20.637"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210809 12:03:23.639" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210809 12:03:20.637" endtime="20210809 12:03:23.640"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>${btn_CropLogo}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:23.641" endtime="20210809 12:03:23.679"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${btn_CropLogo}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:23.680" level="INFO">Clicking element 'id:submit_crop_logo'.</msg>
-<status status="PASS" starttime="20210809 12:03:23.679" endtime="20210809 12:03:23.949"/>
-</kw>
-<status status="PASS" starttime="20210809 12:03:20.469" endtime="20210809 12:03:23.949"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.279" endtime="20210827 16:13:58.279"/>
 </kw>
 <kw name="Select Background" library="res_SetupBrand">
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>${btn_UploadCover}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:23.949" endtime="20210809 12:03:23.969"/>
-</kw>
-<kw name="Choose File" library="SeleniumLibrary">
-<arg>${btn_UploadCover}</arg>
-<arg>${photoFile}</arg>
-<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
-<msg timestamp="20210809 12:03:23.970" level="INFO">Sending /Users/machruk/Documents/Gift.png to browser.</msg>
-<status status="PASS" starttime="20210809 12:03:23.969" endtime="20210809 12:03:24.034"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210809 12:03:27.037" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210809 12:03:24.034" endtime="20210809 12:03:27.037"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${btn_CropBg}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210809 12:03:27.037" endtime="20210809 12:03:27.067"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${btn_CropBg}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:27.067" level="INFO">Clicking element 'id:submit_crop_bg'.</msg>
-<status status="PASS" starttime="20210809 12:03:27.067" endtime="20210809 12:03:27.105"/>
-</kw>
-<status status="PASS" starttime="20210809 12:03:23.949" endtime="20210809 12:03:27.105"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.279" endtime="20210827 16:13:58.279"/>
 </kw>
 <kw name="Checkbox Use Infromation" library="res_SetupBrand">
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>${chckBox_UseInf}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:27.106" endtime="20210809 12:03:27.135"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${chckBox_UseInf}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:27.136" level="INFO">Clicking element 'xpath://a[contains(text(),'Use the same')]'.</msg>
-<status status="PASS" starttime="20210809 12:03:27.135" endtime="20210809 12:03:27.340"/>
-</kw>
-<status status="PASS" starttime="20210809 12:03:27.105" endtime="20210809 12:03:27.340"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.279" endtime="20210827 16:13:58.279"/>
 </kw>
 <kw name="Input Short Location" library="res_SetupBrand">
-<kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210809 12:03:30.342" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210809 12:03:27.340" endtime="20210809 12:03:30.342"/>
+<status status="NOT RUN" starttime="20210827 16:13:58.279" endtime="20210827 16:13:58.279"/>
 </kw>
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>${field_ShortLoc}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:30.343" endtime="20210809 12:03:30.364"/>
+<kw name="Click Complete Setup" library="res_SetupBrand">
+<status status="NOT RUN" starttime="20210827 16:13:58.279" endtime="20210827 16:13:58.279"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${field_ShortLoc}</arg>
-<arg>${shortLoc}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:30.364" level="INFO">Typing text 'Jakarta' into text field 'id:short_location'.</msg>
-<status status="PASS" starttime="20210809 12:03:30.364" endtime="20210809 12:03:30.448"/>
+<kw name="Verify SetUp Brand is successfully" library="res_SetupBrand">
+<status status="NOT RUN" starttime="20210827 16:13:58.279" endtime="20210827 16:13:58.279"/>
 </kw>
-<status status="PASS" starttime="20210809 12:03:27.340" endtime="20210809 12:03:30.448"/>
+<status status="FAIL" starttime="20210827 16:13:47.876" endtime="20210827 16:13:58.280"/>
 </kw>
-<kw name="Add Administrator Email" library="res_SetupBrand">
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>${field_AdmEmail}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210809 12:03:30.448" endtime="20210809 12:03:30.463"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${field_AdmEmail}</arg>
-<arg>${AdmEmail}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210809 12:03:30.463" level="INFO">Typing text 'machruk.m@gmail.com' into text field 'id:administrator_email'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210809 12:03:30.758" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210809 12:03:30.481" endtime="20210809 12:03:30.758"/>
-</kw>
-<msg timestamp="20210809 12:03:30.762" level="FAIL">ElementNotInteractableException: Message: element not interactable
-  (Session info: chrome=92.0.4515.131)
-</msg>
-<status status="FAIL" starttime="20210809 12:03:30.463" endtime="20210809 12:03:30.762"/>
-</kw>
-<status status="FAIL" starttime="20210809 12:03:30.448" endtime="20210809 12:03:30.762"/>
-</kw>
-<status status="FAIL" starttime="20210809 12:03:19.502" endtime="20210809 12:03:30.763"/>
-</kw>
-<status status="FAIL" starttime="20210809 12:03:19.494" endtime="20210809 12:03:30.763">ElementNotInteractableException: Message: element not interactable
-  (Session info: chrome=92.0.4515.131)
-</status>
+<status status="FAIL" starttime="20210827 16:13:47.875" endtime="20210827 16:13:58.280">Element with locator 'id:brand_name' not found.</status>
 </test>
 <doc>Verify setup brand features is working properly</doc>
-<status status="FAIL" starttime="20210809 12:03:06.621" endtime="20210809 12:03:30.764"/>
+<status status="FAIL" starttime="20210827 16:13:34.754" endtime="20210827 16:13:58.281"/>
 </suite>
 <statistics>
 <total>

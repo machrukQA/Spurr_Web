@@ -26,20 +26,7 @@ Verify Create Free Gift Loyalty (Spend Based) is successfully
     Step 2 => Create Free Gift Loyalty
     Step 3 => Create Free Gift Loyalty
 
-Verify Create Free Gift Loyalty (Spend Based) with Multiple Rewards is successfully
-    Step 1 => Create Free Gift Loyalty with Multiple Rewards
-    Step 2 => Create Free Gift Loyalty with Multiple Rewards
-    Step 3 => Create Free Gift Loyalty with Multiple Rewards
 
-Verify Create Cash Voucher Loyalty (Spend Based) is successfully
-    Step 1 => Create Cash Voucher Loyalty
-    Step 2 => Create Cash Voucher Loyalty
-    Step 3 => Create Cash Voucher Loyalty
-
-Verify Create Cash Voucher Loyalty (Spend Based) with Multiple Rewards is successfully
-    Step 1 => Create Cash Voucher Loyalty with Multiple Rewards
-    Step 2 => Create Cash Voucher Loyalty with Multiple Rewards
-    #Step 3 => Create Cash Voucher Loyalty with Multiple Rewards
 
 
 

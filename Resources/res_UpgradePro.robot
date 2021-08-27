@@ -34,6 +34,10 @@ ${scsMsg_upgradeVerified}       Your payment verified and succeeded.
 ${btn_closeSucMsg}              xpath://body[1]/div[1]/div[2]/ul[1]/li[1]/button[1]
 
 
+### Download Receipt ###
+
+
+
 
 *** Keywords ***
 Click Upgrade

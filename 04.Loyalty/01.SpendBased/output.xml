@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210814 20:02:26.556" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210827 16:48:34.616" rpa="false" schemaversion="2">
 <suite id="s1" name="loyalty SpBased" source="/Users/machruk/PycharmProjects/Spurr_Web/04.Loyalty/01.SpendBased/loyalty_SpBased.robot">
 <kw name="Open GoSpurr.com" library="res_Signup" type="SETUP">
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20210814 20:02:26.700" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
-<status status="PASS" starttime="20210814 20:02:26.700" endtime="20210814 20:02:55.103"/>
+<msg timestamp="20210827 16:48:34.752" level="INFO">Opening browser 'firefox' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
+<msg timestamp="20210827 16:48:34.753" level="INFO">Firefox driver log is always forced to to: /Users/machruk/PycharmProjects/Spurr_Web/04.Loyalty/01.SpendBased/geckodriver-2.log</msg>
+<status status="PASS" starttime="20210827 16:48:34.752" endtime="20210827 16:48:39.379"/>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210814 20:02:55.104" endtime="20210814 20:02:55.254"/>
+<status status="PASS" starttime="20210827 16:48:39.380" endtime="20210827 16:48:39.860"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${btn_Signup}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:02:55.254" endtime="20210814 20:02:55.329"/>
+<status status="PASS" starttime="20210827 16:48:39.860" endtime="20210827 16:48:39.892"/>
 </kw>
 <kw name="Valid Login with New Password" library="res_Signup">
 <kw name="Input New Username" library="res_Signup">
@@ -25,63 +26,63 @@
 <arg>${field_Usrname}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:02:55.329" endtime="20210814 20:02:55.347"/>
+<status status="PASS" starttime="20210827 16:48:39.892" endtime="20210827 16:48:39.906"/>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <arg>${field_Usrname}</arg>
 <arg>${valid_Email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210814 20:02:55.347" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
-<status status="PASS" starttime="20210814 20:02:55.347" endtime="20210814 20:02:55.667"/>
+<msg timestamp="20210827 16:48:39.907" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210827 16:48:39.906" endtime="20210827 16:48:39.935"/>
 </kw>
-<status status="PASS" starttime="20210814 20:02:55.329" endtime="20210814 20:02:55.667"/>
+<status status="PASS" starttime="20210827 16:48:39.892" endtime="20210827 16:48:39.935"/>
 </kw>
 <kw name="New Password" library="res_Signup">
 <kw name="Input Text" library="Selenium2Library">
 <arg>${field_Pwd}</arg>
 <arg>${newPwd}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210814 20:02:55.668" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20210814 20:02:55.667" endtime="20210814 20:02:55.767"/>
+<msg timestamp="20210827 16:48:39.936" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210827 16:48:39.936" endtime="20210827 16:48:39.979"/>
 </kw>
-<status status="PASS" starttime="20210814 20:02:55.667" endtime="20210814 20:02:55.767"/>
+<status status="PASS" starttime="20210827 16:48:39.935" endtime="20210827 16:48:39.979"/>
 </kw>
 <kw name="Click Login button" library="res_Signup">
 <kw name="Click Element" library="Selenium2Library">
 <arg>${btn_Signin}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210814 20:02:55.768" level="INFO">Clicking element 'id:label-button'.</msg>
-<status status="PASS" starttime="20210814 20:02:55.767" endtime="20210814 20:02:56.175"/>
+<msg timestamp="20210827 16:48:39.979" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210827 16:48:39.979" endtime="20210827 16:48:40.220"/>
 </kw>
-<status status="PASS" starttime="20210814 20:02:55.767" endtime="20210814 20:02:56.175"/>
+<status status="PASS" starttime="20210827 16:48:39.979" endtime="20210827 16:48:40.220"/>
 </kw>
 <kw name="Verify Login is successfully" library="res_Signup">
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${menu_Dshbrd}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:02:56.175" endtime="20210814 20:03:48.652"/>
+<status status="PASS" starttime="20210827 16:48:40.221" endtime="20210827 16:48:41.727"/>
 </kw>
 <kw name="Page Should Contain Element" library="Selenium2Library">
 <arg>${menu_Dshbrd}</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:03:48.661" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
-<status status="PASS" starttime="20210814 20:03:48.653" endtime="20210814 20:03:48.661"/>
+<msg timestamp="20210827 16:48:41.730" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
+<status status="PASS" starttime="20210827 16:48:41.727" endtime="20210827 16:48:41.730"/>
 </kw>
-<status status="PASS" starttime="20210814 20:02:56.175" endtime="20210814 20:03:48.661"/>
+<status status="PASS" starttime="20210827 16:48:40.221" endtime="20210827 16:48:41.730"/>
 </kw>
-<status status="PASS" starttime="20210814 20:02:55.329" endtime="20210814 20:03:48.661"/>
+<status status="PASS" starttime="20210827 16:48:39.892" endtime="20210827 16:48:41.730"/>
 </kw>
 <kw name="Waiting to Load" library="res_Signup">
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210814 20:03:53.663" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210814 20:03:48.662" endtime="20210814 20:03:53.663"/>
+<msg timestamp="20210827 16:48:46.732" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210827 16:48:41.730" endtime="20210827 16:48:46.733"/>
 </kw>
-<status status="PASS" starttime="20210814 20:03:48.662" endtime="20210814 20:03:53.663"/>
+<status status="PASS" starttime="20210827 16:48:41.730" endtime="20210827 16:48:46.734"/>
 </kw>
-<status status="PASS" starttime="20210814 20:02:26.699" endtime="20210814 20:03:53.664"/>
+<status status="PASS" starttime="20210827 16:48:34.752" endtime="20210827 16:48:46.734"/>
 </kw>
 <test id="s1-t1" name="Verify Create Free Gift Loyalty (Spend Based) is successfully">
 <kw name="Step 1 =&gt; Create Free Gift Loyalty">
@@ -89,312 +90,151 @@
 <kw name="Go To" library="Selenium2Library">
 <arg>${url_CreateLoyalty}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20210814 20:03:53.671" level="INFO">Opening url 'https://app-dev-v2.gospurr.com/loyalty-type'</msg>
-<status status="PASS" starttime="20210814 20:03:53.671" endtime="20210814 20:03:58.990"/>
+<msg timestamp="20210827 16:48:46.742" level="INFO">Opening url 'https://app-dev-v2.gospurr.com/loyalty-type'</msg>
+<status status="PASS" starttime="20210827 16:48:46.741" endtime="20210827 16:48:47.048"/>
 </kw>
-<status status="PASS" starttime="20210814 20:03:53.670" endtime="20210814 20:03:58.991"/>
+<status status="PASS" starttime="20210827 16:48:46.740" endtime="20210827 16:48:47.048"/>
 </kw>
 <kw name="Select Spend Based" library="res_01SpBased">
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${rdioBtn_SpendBased}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:03:58.991" endtime="20210814 20:03:59.022"/>
+<status status="PASS" starttime="20210827 16:48:47.048" endtime="20210827 16:48:47.083"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <arg>${rdioBtn_SpendBased}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210814 20:03:59.022" level="INFO">Clicking element 'xpath://span[contains(text(),'SPEND-BASED')]'.</msg>
-<status status="PASS" starttime="20210814 20:03:59.022" endtime="20210814 20:03:59.528"/>
+<msg timestamp="20210827 16:48:47.084" level="INFO">Clicking element 'xpath://span[contains(text(),'SPEND-BASED')]'.</msg>
+<status status="PASS" starttime="20210827 16:48:47.083" endtime="20210827 16:48:47.351"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${btn_Req_SpendBasedOn}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:03:59.528" endtime="20210814 20:03:59.548"/>
+<status status="PASS" starttime="20210827 16:48:47.351" endtime="20210827 16:48:47.362"/>
 </kw>
 <kw name="Page Should Contain Element" library="Selenium2Library">
 <arg>${btn_Req_SpendBasedOn}</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:03:59.552" level="INFO">Current page contains element 'xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/a[1]/span[1]/em[1]'.</msg>
-<status status="PASS" starttime="20210814 20:03:59.548" endtime="20210814 20:03:59.552"/>
+<msg timestamp="20210827 16:48:47.366" level="INFO">Current page contains element 'xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/a[1]/span[1]/em[1]'.</msg>
+<status status="PASS" starttime="20210827 16:48:47.362" endtime="20210827 16:48:47.366"/>
 </kw>
-<status status="PASS" starttime="20210814 20:03:58.991" endtime="20210814 20:03:59.552"/>
+<status status="PASS" starttime="20210827 16:48:47.048" endtime="20210827 16:48:47.366"/>
 </kw>
 <kw name="Input Total Number Stamp" library="res_01SpBased">
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${field_Ttl_Stamp}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:03:59.552" endtime="20210814 20:03:59.568"/>
+<status status="PASS" starttime="20210827 16:48:47.366" endtime="20210827 16:48:47.374"/>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <arg>${field_Ttl_Stamp}</arg>
 <arg>${input_Ttl_Stamp}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210814 20:03:59.569" level="INFO">Typing text '5' into text field 'xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[2]/li[1]/input[1]'.</msg>
-<status status="PASS" starttime="20210814 20:03:59.568" endtime="20210814 20:03:59.719"/>
+<msg timestamp="20210827 16:48:47.375" level="INFO">Typing text '5' into text field 'xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[2]/li[1]/input[1]'.</msg>
+<status status="PASS" starttime="20210827 16:48:47.374" endtime="20210827 16:48:47.402"/>
 </kw>
-<status status="PASS" starttime="20210814 20:03:59.552" endtime="20210814 20:03:59.719"/>
+<status status="PASS" starttime="20210827 16:48:47.366" endtime="20210827 16:48:47.402"/>
 </kw>
 <kw name="Input Minimum IDR" library="res_01SpBased">
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${field_SpndBsd_idr}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:03:59.719" endtime="20210814 20:03:59.736"/>
+<status status="PASS" starttime="20210827 16:48:47.402" endtime="20210827 16:48:47.414"/>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <arg>${field_SpndBsd_idr}</arg>
 <arg>${idr}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210814 20:03:59.736" level="INFO">Typing text '10000' into text field 'xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[2]/li[2]/input[1]'.</msg>
-<status status="PASS" starttime="20210814 20:03:59.736" endtime="20210814 20:03:59.855"/>
+<msg timestamp="20210827 16:48:47.414" level="INFO">Typing text '10000' into text field 'xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[2]/li[2]/input[1]'.</msg>
+<status status="PASS" starttime="20210827 16:48:47.414" endtime="20210827 16:48:47.488"/>
 </kw>
-<status status="PASS" starttime="20210814 20:03:59.719" endtime="20210814 20:03:59.855"/>
+<status status="PASS" starttime="20210827 16:48:47.402" endtime="20210827 16:48:47.488"/>
 </kw>
 <kw name="Select Loyalty Period" library="res_01SpBased">
 <kw name="Get Current Date" library="DateTime">
 <var>${slct_StrtDate}</var>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20210814 20:03:59.857" level="INFO">${slct_StrtDate} = 2021-08-14 20:03:59.856</msg>
-<status status="PASS" starttime="20210814 20:03:59.855" endtime="20210814 20:03:59.857"/>
+<msg timestamp="20210827 16:48:47.489" level="INFO">${slct_StrtDate} = 2021-08-27 16:48:47.489</msg>
+<status status="PASS" starttime="20210827 16:48:47.489" endtime="20210827 16:48:47.489"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${startDate}</var>
 <arg>${slct_StrtDate}</arg>
 <arg>result_format=%d %B %Y</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20210814 20:03:59.861" level="INFO">${startDate} = 14 August 2021</msg>
-<status status="PASS" starttime="20210814 20:03:59.857" endtime="20210814 20:03:59.861"/>
+<msg timestamp="20210827 16:48:47.492" level="INFO">${startDate} = 27 August 2021</msg>
+<status status="PASS" starttime="20210827 16:48:47.489" endtime="20210827 16:48:47.492"/>
 </kw>
 <kw name="Press Keys" library="Selenium2Library">
 <arg>${lylty_StrtDate}</arg>
 <arg>${startDate}</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<msg timestamp="20210814 20:03:59.864" level="INFO">Sending key(s) ('14 August 2021',) to xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[2]/li[3]/input[1] element.</msg>
-<msg timestamp="20210814 20:04:00.527" level="INFO">Sending keys 14 August 2021</msg>
-<status status="PASS" starttime="20210814 20:03:59.861" endtime="20210814 20:04:00.624"/>
+<msg timestamp="20210827 16:48:47.493" level="INFO">Sending key(s) ('27 August 2021',) to xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[2]/li[3]/input[1] element.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210827 16:48:47.749" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210827 16:48:47.505" endtime="20210827 16:48:47.749"/>
+</kw>
+<msg timestamp="20210827 16:48:47.753" level="FAIL">MoveTargetOutOfBoundsException: Message: (485, 816) is out of bounds of viewport width (1440) and height (790)
+</msg>
+<status status="FAIL" starttime="20210827 16:48:47.492" endtime="20210827 16:48:47.753"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210814 20:04:03.626" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210814 20:04:00.624" endtime="20210814 20:04:03.627"/>
+<status status="NOT RUN" starttime="20210827 16:48:47.753" endtime="20210827 16:48:47.754"/>
 </kw>
 <kw name="Add Time To Date" library="DateTime">
 <var>${slct_EndDate}</var>
 <arg>${slct_StrtDate}</arg>
 <arg>7 Days</arg>
 <doc>Adds time to date and returns the resulting date.</doc>
-<msg timestamp="20210814 20:04:03.630" level="INFO">${slct_EndDate} = 2021-08-21 20:03:59.856</msg>
-<status status="PASS" starttime="20210814 20:04:03.628" endtime="20210814 20:04:03.630"/>
+<status status="NOT RUN" starttime="20210827 16:48:47.754" endtime="20210827 16:48:47.754"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${EndDate}</var>
 <arg>${slct_EndDate}</arg>
 <arg>result_format=%d %B %Y</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20210814 20:04:03.632" level="INFO">${EndDate} = 21 August 2021</msg>
-<status status="PASS" starttime="20210814 20:04:03.631" endtime="20210814 20:04:03.632"/>
+<status status="NOT RUN" starttime="20210827 16:48:47.754" endtime="20210827 16:48:47.754"/>
 </kw>
 <kw name="Press Keys" library="Selenium2Library">
 <arg>${lylty_EndDate}</arg>
 <arg>${EndDate}</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<msg timestamp="20210814 20:04:03.634" level="INFO">Sending key(s) ('21 August 2021',) to xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[2]/li[4]/input[1] element.</msg>
-<msg timestamp="20210814 20:04:04.340" level="INFO">Sending keys 21 August 2021</msg>
-<status status="PASS" starttime="20210814 20:04:03.632" endtime="20210814 20:04:04.415"/>
+<status status="NOT RUN" starttime="20210827 16:48:47.754" endtime="20210827 16:48:47.754"/>
 </kw>
-<status status="PASS" starttime="20210814 20:03:59.855" endtime="20210814 20:04:04.415"/>
+<status status="FAIL" starttime="20210827 16:48:47.488" endtime="20210827 16:48:47.754"/>
 </kw>
 <kw name="Click Next Button" library="res_01SpBased">
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${btn_next}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:04:04.416" endtime="20210814 20:04:04.446"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${btn_next}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210814 20:04:04.446" level="INFO">Clicking element 'xpath://body/ul[1]/li[2]/section[4]/ul[1]/li[2]/a[1]'.</msg>
-<status status="PASS" starttime="20210814 20:04:04.446" endtime="20210814 20:04:04.634"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:04.416" endtime="20210814 20:04:04.634"/>
+<status status="NOT RUN" starttime="20210827 16:48:47.754" endtime="20210827 16:48:47.755"/>
 </kw>
 <kw name="Verify Reward Details are Displayed Properly" library="res_01SpBased">
-<kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210814 20:04:07.637" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20210814 20:04:04.634" endtime="20210814 20:04:07.637"/>
+<status status="NOT RUN" starttime="20210827 16:48:47.755" endtime="20210827 16:48:47.755"/>
 </kw>
-<kw name="Set Focus To Element" library="Selenium2Library">
-<arg>${step_Vrfy_Step2}</arg>
-<doc>Sets the focus to the element identified by ``locator``.</doc>
-<status status="PASS" starttime="20210814 20:04:07.638" endtime="20210814 20:04:20.744"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${step_Vrfy_Step2}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:04:20.744" endtime="20210814 20:04:20.760"/>
-</kw>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<arg>${step_Vrfy_Step2}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:04:20.764" level="INFO">Current page contains element 'xpath://li[@class='active']//span[contains(text(),'2')]'.</msg>
-<status status="PASS" starttime="20210814 20:04:20.760" endtime="20210814 20:04:20.764"/>
-</kw>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<arg>${drpdwn_RewardType}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:04:20.770" level="INFO">Current page contains element 'xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/ul[1]/li[1]/span[1]/span[1]/span[1]/span[1]'.</msg>
-<status status="PASS" starttime="20210814 20:04:20.764" endtime="20210814 20:04:20.771"/>
-</kw>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<arg>${field_RewardValue}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:04:20.778" level="INFO">Current page contains element 'id:reward_value'.</msg>
-<status status="PASS" starttime="20210814 20:04:20.771" endtime="20210814 20:04:20.778"/>
-</kw>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<arg>${field_RewardName}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:04:20.784" level="INFO">Current page contains element 'id:reward_name'.</msg>
-<status status="PASS" starttime="20210814 20:04:20.778" endtime="20210814 20:04:20.784"/>
-</kw>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<arg>${btn_UploadImage}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:04:20.790" level="INFO">Current page contains element 'xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/ul[1]/li[5]/div[1]/input[1]'.</msg>
-<status status="PASS" starttime="20210814 20:04:20.784" endtime="20210814 20:04:20.790"/>
-</kw>
-<kw name="Page Should Contain Element" library="Selenium2Library">
-<arg>${btn_AddReward}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210814 20:04:20.797" level="INFO">Current page contains element 'xpath://a[@class='btn btn-green with-prior'][contains(text(),'ADD REWARD')]'.</msg>
-<status status="PASS" starttime="20210814 20:04:20.790" endtime="20210814 20:04:20.797"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:04.634" endtime="20210814 20:04:20.797"/>
-</kw>
-<status status="PASS" starttime="20210814 20:03:53.669" endtime="20210814 20:04:20.797"/>
+<status status="FAIL" starttime="20210827 16:48:46.740" endtime="20210827 16:48:47.755"/>
 </kw>
 <kw name="Step 2 =&gt; Create Free Gift Loyalty">
-<kw name="Select Free Gift Type" library="res_01SpBased">
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210814 20:04:25.800" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210814 20:04:20.797" endtime="20210814 20:04:25.800"/>
+<status status="NOT RUN" starttime="20210827 16:48:47.755" endtime="20210827 16:48:47.755"/>
 </kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${drpdwn_RewardType}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:04:25.801" endtime="20210814 20:04:25.834"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${drpdwn_RewardType}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210814 20:04:25.835" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/ul[1]/li[1]/span[1]/span[1]/span[1]/span[1]'.</msg>
-<status status="PASS" starttime="20210814 20:04:25.835" endtime="20210814 20:04:26.024"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${slct_FreeGift}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:04:26.024" endtime="20210814 20:04:26.041"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${slct_FreeGift}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210814 20:04:26.041" level="INFO">Clicking element 'xpath://body[1]/span[1]/span[1]/span[2]/ul[1]/li[3]'.</msg>
-<status status="PASS" starttime="20210814 20:04:26.041" endtime="20210814 20:04:26.156"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:20.797" endtime="20210814 20:04:26.156"/>
-</kw>
-<kw name="Input Reward Value" library="res_01SpBased">
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${field_RewardValue}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:04:26.156" endtime="20210814 20:04:26.169"/>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<arg>${field_RewardValue}</arg>
-<arg>${rewardValue}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210814 20:04:26.169" level="INFO">Typing text '300000' into text field 'id:reward_value'.</msg>
-<status status="PASS" starttime="20210814 20:04:26.169" endtime="20210814 20:04:26.262"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:26.156" endtime="20210814 20:04:26.262"/>
-</kw>
-<kw name="Input Reward Name" library="res_01SpBased">
-<kw name="Generate Random String" library="String">
-<var>${random}</var>
-<arg>3</arg>
-<arg>[NUMBERS]</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20210814 20:04:26.263" level="INFO">${random} = 812</msg>
-<status status="PASS" starttime="20210814 20:04:26.263" endtime="20210814 20:04:26.263"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${field_RewardName}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:04:26.264" endtime="20210814 20:04:26.277"/>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<arg>${field_RewardName}</arg>
-<arg>FreeGift_Espresso${random}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210814 20:04:26.278" level="INFO">Typing text 'FreeGift_Espresso812' into text field 'id:reward_name'.</msg>
-<status status="PASS" starttime="20210814 20:04:26.277" endtime="20210814 20:04:26.353"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:26.262" endtime="20210814 20:04:26.353"/>
-</kw>
-<kw name="Upload Image" library="res_01SpBased">
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${btn_UploadImage}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210814 20:04:26.354" endtime="20210814 20:04:26.385"/>
-</kw>
-<kw name="Choose File" library="Selenium2Library">
-<arg>${btn_UploadImage}</arg>
-<arg>${imageFile}</arg>
-<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
-<msg timestamp="20210814 20:04:26.386" level="INFO">Sending /Users/machruk/Documents/Gift.png to browser.</msg>
-<status status="PASS" starttime="20210814 20:04:26.386" endtime="20210814 20:04:26.462"/>
-</kw>
-<kw name="Waiting to Load" library="res_Signup">
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210814 20:04:31.465" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210814 20:04:26.462" endtime="20210814 20:04:31.466"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:26.462" endtime="20210814 20:04:31.467"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:26.354" endtime="20210814 20:04:31.467"/>
-</kw>
-<status status="PASS" starttime="20210814 20:04:20.797" endtime="20210814 20:04:31.468"/>
-</kw>
-<status status="PASS" starttime="20210814 20:03:53.664" endtime="20210814 20:04:31.469"/>
+<status status="FAIL" starttime="20210827 16:48:46.735" endtime="20210827 16:48:47.755">MoveTargetOutOfBoundsException: Message: (485, 816) is out of bounds of viewport width (1440) and height (790)
+</status>
 </test>
 <doc>Verify Create "Spend Based" loyalty features is working properly</doc>
-<status status="PASS" starttime="20210814 20:02:26.558" endtime="20210814 20:04:31.472"/>
+<status status="FAIL" starttime="20210827 16:48:34.617" endtime="20210827 16:48:47.756"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="loyalty SpBased">loyalty SpBased</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="loyalty SpBased">loyalty SpBased</stat>
 </suite>
 </statistics>
 <errors>

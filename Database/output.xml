@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210809 13:54:09.954" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210823 15:31:10.919" rpa="false" schemaversion="2">
 <suite id="s1" name="connectToDB" source="/Users/machruk/PycharmProjects/Spurr_Web/Database/connectToDB.robot">
 <kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
 <arg>pymysql</arg>
@@ -10,39 +10,39 @@
 <arg>${DBPort}</arg>
 <doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
 connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20210809 13:54:09.986" level="INFO">Connecting using : pymysql.connect(db=shopick_v2, user=qa, passwd=DWkg8yNJjZMYFwgd, host=34.68.209.108, port=3306, charset=None) </msg>
-<status status="PASS" starttime="20210809 13:54:09.978" endtime="20210809 13:54:10.940"/>
+<msg timestamp="20210823 15:31:10.951" level="INFO">Connecting using : pymysql.connect(db=shopick_v2, user=qa, passwd=DWkg8yNJjZMYFwgd, host=34.68.209.108, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20210823 15:31:10.944" endtime="20210823 15:31:11.785"/>
 </kw>
 <test id="s1-t1" name="tes1">
-<kw name="Check Member id Present in Master_Member Table">
-<kw name="Check If Exists In Database" library="DatabaseLibrary">
-<arg>select member_id from shopick_v2.master_member where member_id='${memberId}';</arg>
-<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
-throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
-commit or rollback.</doc>
-<msg timestamp="20210809 13:54:10.944" level="INFO">Executing : Check If Exists In Database  |  select member_id from shopick_v2.master_member where member_id='076811a1-dcf1-11eb-bce9-42010a715007'; </msg>
-<msg timestamp="20210809 13:54:10.944" level="INFO">Executing : Query  |  select member_id from shopick_v2.master_member where member_id='076811a1-dcf1-11eb-bce9-42010a715007'; </msg>
-<status status="PASS" starttime="20210809 13:54:10.943" endtime="20210809 13:54:11.421"/>
+<kw name="Delete Loyalty">
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${del_loyalty}</var>
+<arg>Delete from shopick_v2.loyalty_master_loyalty WHERE loyalty_merchant_id='ea998a56-dcf1-11eb-bce9-42010a715007';</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20210823 15:31:11.792" level="INFO">Executing : Execute SQL String  |  Delete from shopick_v2.loyalty_master_loyalty WHERE loyalty_merchant_id='ea998a56-dcf1-11eb-bce9-42010a715007'; </msg>
+<msg timestamp="20210823 15:31:12.218" level="FAIL">IntegrityError: (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`shopick_v2`.`loyalty_master_rewards`, CONSTRAINT `FK_rewards_loyalty` FOREIGN KEY (`rewards_loyalty_id`) REFERENCES `loyalty_master_loyalty` (`loyalty_id`) ON UPDATE CASCADE)')</msg>
+<status status="FAIL" starttime="20210823 15:31:11.791" endtime="20210823 15:31:12.218"/>
 </kw>
-<status status="PASS" starttime="20210809 13:54:10.942" endtime="20210809 13:54:11.422"/>
+<status status="FAIL" starttime="20210823 15:31:11.789" endtime="20210823 15:31:12.220"/>
 </kw>
-<status status="PASS" starttime="20210809 13:54:10.941" endtime="20210809 13:54:11.423"/>
+<status status="FAIL" starttime="20210823 15:31:11.787" endtime="20210823 15:31:12.221">IntegrityError: (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`shopick_v2`.`loyalty_master_rewards`, CONSTRAINT `FK_rewards_loyalty` FOREIGN KEY (`rewards_loyalty_id`) REFERENCES `loyalty_master_loyalty` (`loyalty_id`) ON UPDATE CASCADE)')</status>
 </test>
 <kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
 <doc>Disconnects from the database.</doc>
-<msg timestamp="20210809 13:54:11.427" level="INFO">Executing : Disconnect From Database</msg>
-<status status="PASS" starttime="20210809 13:54:11.426" endtime="20210809 13:54:11.427"/>
+<msg timestamp="20210823 15:31:12.222" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20210823 15:31:12.222" endtime="20210823 15:31:12.223"/>
 </kw>
-<status status="PASS" starttime="20210809 13:54:09.955" endtime="20210809 13:54:11.427"/>
+<status status="FAIL" starttime="20210823 15:31:10.920" endtime="20210823 15:31:12.223"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="connectToDB">connectToDB</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="connectToDB">connectToDB</stat>
 </suite>
 </statistics>
 <errors>

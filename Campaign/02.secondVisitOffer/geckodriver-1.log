@@ -1,0 +1,26 @@
+1630063101751	geckodriver	INFO	Listening on 127.0.0.1:52479
+1630063102316	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/t8/s2qvmzks59dfq46rms7rht2h0000gn/T/rust_mozprofiletv9Q4m"
+1630063103020	Marionette	INFO	Marionette enabled
+2021-08-27 18:18:24.266 firefox-bin[24533:1180641] Warning: Expected min height of view: (<NSButton: 0x12df56c00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-08-27 18:18:24.266 firefox-bin[24533:1180641] Warning: Expected min height of view: (<NSButton: 0x13c3de800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-08-27 18:18:24.267 firefox-bin[24533:1180641] Warning: Expected min height of view: (<NSButton: 0x13c3db000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-08-27 18:18:24.267 firefox-bin[24533:1180641] Warning: Expected min height of view: (<NSButton: 0x13c3e0400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-08-27 18:18:24.267 firefox-bin[24533:1180641] Warning: Expected min height of view: (<NSButton: 0x13c3df800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-08-27 18:18:24.268 firefox-bin[24533:1180641] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x13c3e1000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-08-27 18:18:24.268 firefox-bin[24533:1180641] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x13c4a1400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/t8/s2qvmzks59dfq46rms7rht2h0000gn/T/rust_mozprofiletv9Q4m/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 243"  data: no]
+1630063105584	Marionette	INFO	Listening on port 52495
+1630063105667	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://app-dev-v2.gospurr.com/actions/app.js, line 1277: ReferenceError: firebase is not defined
+1630063106246	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1630063131076	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:237:19
+TimedPromise@chrome://marionette/content/sync.js:222:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:431:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+JavaScript error: https://app-dev-v2.gospurr.com/actions/campaign/campaign-create-step2.js, line 439: TypeError: uploadButton is undefined
+JavaScript error: https://app-dev-v2.gospurr.com/actions/campaign/campaign-create-step2.js, line 439: TypeError: uploadButton is undefined

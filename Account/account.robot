@@ -11,14 +11,14 @@ Suite Setup         Connect To Database     pymysql  ${DBName}   ${DBUser}   ${D
 #Suite Teardown      Close Browser
 
 *** Test Cases ***
-Verify Delete Verified Phone is Successfully
-    Delete Verified Phone
+
 Verify the features On Account Details are working properly
     Go to Account Details
-    Verify Edit Phone Number is Successfully
-    Verify Phone Number is Successfully
+    #Verify Edit Phone Number is Successfully
+    #Verify Phone Number is Successfully
     #Verify Edit Email is Successfully
     #Verify Email is Successfully
+    Click Download Receipt button
 
 
 
@@ -33,6 +33,7 @@ Go to Account Details
     Click Profile Menu
     Click Account Menu
 Verify Edit Phone Number is Successfully
+    Delete Verified Phone
     Click Edit Details
     Edit First Name
     Edit Last Name
@@ -47,6 +48,7 @@ Verify Phone Number is Successfully
     Enter OTP Code
     Phone Number is Verified
 Verify Edit Email is Successfully
+    Delete Verified Phone
     Click Edit Details
     Edit First Name
     Edit Last Name
@@ -56,3 +58,5 @@ Verify Edit Email is Successfully
 Verify Email is Successfully
     Retype Code in Email
     Email is Verified
+Verify Download Receipt is successfully
+    Click Download Receipt button

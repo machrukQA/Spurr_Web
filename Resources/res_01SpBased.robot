@@ -122,8 +122,8 @@ Upload Image
     wait until element is enabled       ${btn_UploadImage}                      ${delay}
     choose file                         ${btn_UploadImage}                      ${imageFile}
     Waiting to Load
-    #Wait Until Element is Enabled       ${btn_Crop}                             ${delay}
-    #Click Element                       ${btn_Crop}
+    Wait Until Element is Enabled       ${btn_Crop}                             ${delay}
+    Click Element                       ${btn_Crop}
 Click Next button (reward)
     Wait Until Element is Enabled       ${btn_next_reward}                      ${delay}
     Click Element                       ${btn_next_reward}

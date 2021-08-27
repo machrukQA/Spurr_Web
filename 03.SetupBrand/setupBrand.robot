@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation       Verify setup brand features is working properly
-Library             SeleniumLibrary
+Library             Selenium2Library
 Library             String
 Resource            ../../Resources/res_Signup.robot
 Resource            ../../Resources/res_SetupBrand.robot

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210826 13:12:45.083" rpa="false" schemaversion="2">
+<suite id="s1" name="lostCustomer" source="/Users/machruk/PycharmProjects/Spurr_Web/Campaign/05.lostCustomerOffer/lostCustomer.robot">
+<kw name="Open GoSpurr.com" library="res_Signup" type="SETUP">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210826 13:12:45.258" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
+<status status="PASS" starttime="20210826 13:12:45.257" endtime="20210826 13:13:11.646"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210826 13:13:11.647" endtime="20210826 13:13:11.787"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_Signup}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210826 13:13:11.787" endtime="20210826 13:13:11.861"/>
+</kw>
+<kw name="Valid Login with New Password" library="res_Signup">
+<kw name="Input New Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210826 13:13:11.862" endtime="20210826 13:13:11.881"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${valid_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210826 13:13:11.882" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210826 13:13:11.881" endtime="20210826 13:13:12.409"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:11.862" endtime="20210826 13:13:12.410"/>
+</kw>
+<kw name="New Password" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Pwd}</arg>
+<arg>${newPwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210826 13:13:12.415" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210826 13:13:12.410" endtime="20210826 13:13:12.553"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:12.410" endtime="20210826 13:13:12.553"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210826 13:13:12.554" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210826 13:13:12.554" endtime="20210826 13:13:13.164"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:12.553" endtime="20210826 13:13:13.165"/>
+</kw>
+<kw name="Verify Login is successfully" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210826 13:13:13.165" endtime="20210826 13:13:16.481"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210826 13:13:16.486" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
+<status status="PASS" starttime="20210826 13:13:16.481" endtime="20210826 13:13:16.486"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:13.165" endtime="20210826 13:13:16.486"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:11.861" endtime="20210826 13:13:16.486"/>
+</kw>
+<kw name="Waiting to Load" library="res_Signup">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210826 13:13:21.489" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210826 13:13:16.487" endtime="20210826 13:13:21.490"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:16.486" endtime="20210826 13:13:21.491"/>
+</kw>
+<status status="PASS" starttime="20210826 13:12:45.257" endtime="20210826 13:13:21.492"/>
+</kw>
+<test id="s1-t1" name="Verify create Lost Customer Offer (Free Gift) is successfully">
+<kw name="Lost Customer =&gt; Free Gift =&gt; Step 1">
+<kw name="Go to Outlet menu" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${menu_campaign}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210826 13:13:21.499" endtime="20210826 13:13:21.802"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${menu_campaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210826 13:13:21.802" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[1]/ul[1]/li[3]/a[1]'.</msg>
+<status status="PASS" starttime="20210826 13:13:21.802" endtime="20210826 13:13:22.532"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${btn_crtCampaign}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20210826 13:13:22.532" endtime="20210826 13:13:22.543"/>
+</kw>
+<kw name="Waiting to Load" library="res_Signup">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210826 13:13:27.546" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210826 13:13:22.544" endtime="20210826 13:13:27.546"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:22.543" endtime="20210826 13:13:27.547"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:21.498" endtime="20210826 13:13:27.548"/>
+</kw>
+<kw name="Click Create Campaign" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_crtCampaign}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210826 13:13:27.550" endtime="20210826 13:13:27.584"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_crtCampaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210826 13:13:27.585" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/div[1]/ul[1]/li[1]/a[1]'.</msg>
+<status status="PASS" starttime="20210826 13:13:27.585" endtime="20210826 13:13:27.855"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${rdBtn_NewCstmr}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20210826 13:13:27.856" endtime="20210826 13:13:27.863"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210826 13:13:30.864" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210826 13:13:27.864" endtime="20210826 13:13:30.864"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:27.549" endtime="20210826 13:13:30.865"/>
+</kw>
+<kw name="Select Lost Customer Offer" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${rdBtn_lostCstmr}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210826 13:13:30.865" endtime="20210826 13:13:30.895"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${rdBtn_lostCstmr}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210826 13:13:30.896" level="INFO">Clicking element 'id:LOST_CUSTOMER'.</msg>
+<status status="PASS" starttime="20210826 13:13:30.895" endtime="20210826 13:13:31.264"/>
+</kw>
+<status status="PASS" starttime="20210826 13:13:30.865" endtime="20210826 13:13:31.278"/>
+</kw>
+<kw name="Click Next button" library="res_camp_newCustomer">
+<kw name="Scroll Element Into View" library="Selenium2Library">
+<arg>${btn_next}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20210826 13:13:31.279" endtime="20210826 13:13:31.695"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_next}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210826 13:13:31.696" endtime="20210826 13:13:31.731"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_next}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210826 13:13:31.731" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/div[1]/ul[1]/li[2]/a[1]'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210826 13:13:33.106" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210826 13:13:32.821" endtime="20210826 13:13:33.106"/>
+</kw>
+<msg timestamp="20210826 13:13:33.110" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="/campaign-offer" class="btn-green btn-next invalid" style="color: rgb(204, 204, 204);"&gt;...&lt;/a&gt; is not clickable at point (1265, 126). Other element would receive the click: &lt;div class="overlay" style=""&gt;&lt;/div&gt;
+  (Session info: chrome=92.0.4515.159)
+</msg>
+<status status="FAIL" starttime="20210826 13:13:31.731" endtime="20210826 13:13:33.110"/>
+</kw>
+<status status="FAIL" starttime="20210826 13:13:31.279" endtime="20210826 13:13:33.111"/>
+</kw>
+<status status="FAIL" starttime="20210826 13:13:21.496" endtime="20210826 13:13:33.111"/>
+</kw>
+<kw name="Lost Customer =&gt; Free Gift =&gt; Step 2">
+<status status="NOT RUN" starttime="20210826 13:13:33.112" endtime="20210826 13:13:33.112"/>
+</kw>
+<kw name="Lost Customer =&gt; Free Gift =&gt; Step 3">
+<status status="NOT RUN" starttime="20210826 13:13:33.112" endtime="20210826 13:13:33.112"/>
+</kw>
+<status status="FAIL" starttime="20210826 13:13:21.493" endtime="20210826 13:13:33.112">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="/campaign-offer" class="btn-green btn-next invalid" style="color: rgb(204, 204, 204);"&gt;...&lt;/a&gt; is not clickable at point (1265, 126). Other element would receive the click: &lt;div class="overlay" style=""&gt;&lt;/div&gt;
+  (Session info: chrome=92.0.4515.159)
+</status>
+</test>
+<doc>Verify the features on Lost Customer Offer are working properly</doc>
+<status status="FAIL" starttime="20210826 13:12:45.084" endtime="20210826 13:13:33.113"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="lostCustomer">lostCustomer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

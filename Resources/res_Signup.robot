@@ -6,7 +6,7 @@ Library             OperatingSystem
 *** Variables ***
 ${delay}                    10
 ${url}                      https://app-dev-v2.gospurr.com/
-${browser}                  chrome
+${browser}                  firefox
 
 ${btn_Signup}               xpath://a[contains(text(),'SIGN UP')]
 ${menu_account}             xpath://a[contains(text(),'Account')]
