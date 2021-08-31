@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210831 18:38:04.064" rpa="false" schemaversion="2">
+<suite id="s1" name="newCust buyXgetY" source="/Users/machruk/PycharmProjects/Spurr_Web/Campaign/01.newCustomerOffer/BuyXgetY/newCust_buyXgetY.robot">
+<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20210831 18:38:04.224" level="INFO">Connecting using : pymysql.connect(db=cvm_v2, user=qa, passwd=DWkg8yNJjZMYFwgd, host=34.68.209.108, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20210831 18:38:04.214" endtime="20210831 18:38:05.123"/>
+</kw>
+<test id="s1-t1" name="Verify edit New Customer Offer (Buy X Get Y) is successfully">
+<kw name="Edit Buy X Get Y Campaign">
+<kw name="Go to Outlet menu" library="res_camp_newCustomer">
+<kw name="Open GoSpurr.com" library="res_Signup">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210831 18:38:05.132" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
+<status status="PASS" starttime="20210831 18:38:05.131" endtime="20210831 18:38:10.974"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210831 18:38:10.975" endtime="20210831 18:38:11.113"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_Signup}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:11.114" endtime="20210831 18:38:11.181"/>
+</kw>
+<kw name="Valid Login with New Password" library="res_Signup">
+<kw name="Input New Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:11.181" endtime="20210831 18:38:11.199"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${valid_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:11.199" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210831 18:38:11.199" endtime="20210831 18:38:11.601"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:11.181" endtime="20210831 18:38:11.601"/>
+</kw>
+<kw name="New Password" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Pwd}</arg>
+<arg>${newPwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:11.602" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210831 18:38:11.601" endtime="20210831 18:38:11.696"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:11.601" endtime="20210831 18:38:11.696"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:11.696" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210831 18:38:11.696" endtime="20210831 18:38:12.107"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:11.696" endtime="20210831 18:38:12.107"/>
+</kw>
+<kw name="Verify Login is successfully" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:12.107" endtime="20210831 18:38:15.014"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210831 18:38:15.018" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
+<status status="PASS" starttime="20210831 18:38:15.015" endtime="20210831 18:38:15.018"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:12.107" endtime="20210831 18:38:15.019"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:11.181" endtime="20210831 18:38:15.019"/>
+</kw>
+<kw name="Waiting to Load" library="res_Signup">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210831 18:38:20.022" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210831 18:38:15.019" endtime="20210831 18:38:20.022"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:15.019" endtime="20210831 18:38:20.022"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:05.130" endtime="20210831 18:38:20.022"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${menu_campaign}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:20.022" endtime="20210831 18:38:20.066"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${menu_campaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:20.066" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[1]/ul[1]/li[3]/a[1]'.</msg>
+<status status="PASS" starttime="20210831 18:38:20.066" endtime="20210831 18:38:20.823"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${btn_crtCampaign}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20210831 18:38:20.823" endtime="20210831 18:38:20.832"/>
+</kw>
+<kw name="Waiting to Load" library="res_Signup">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210831 18:38:25.833" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210831 18:38:20.832" endtime="20210831 18:38:25.833"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:20.832" endtime="20210831 18:38:25.834"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:05.130" endtime="20210831 18:38:25.834"/>
+</kw>
+<kw name="Click Edit Campaign" library="res_camp_newCustomer">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210831 18:38:27.837" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210831 18:38:25.835" endtime="20210831 18:38:27.838"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_editCampaign}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:27.839" endtime="20210831 18:38:27.877"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_editCampaign}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:27.878" level="INFO">Clicking element 'xpath://a[contains(text(),'EDIT CAMPAIGN')]'.</msg>
+<status status="PASS" starttime="20210831 18:38:27.878" endtime="20210831 18:38:28.216"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:25.835" endtime="20210831 18:38:28.216"/>
+</kw>
+<kw name="Add Term &amp; Condition" library="res_camp_newCustomer">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210831 18:38:30.219" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210831 18:38:28.217" endtime="20210831 18:38:30.219"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fldEdit_addTerm}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:30.219" endtime="20210831 18:38:30.969"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fldEdit_addTerm}</arg>
+<arg>${EditTermText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:30.970" level="INFO">Typing text 'Term text edited' into text field 'xpath://body[1]/ul[1]/li[2]/section[2]/ul[1]/li[1]/div[2]/ul[2]/li[1]/textarea[1]'.</msg>
+<status status="PASS" starttime="20210831 18:38:30.969" endtime="20210831 18:38:31.165"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_EditTerm}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:31.165" level="INFO">Clicking element 'xpath://button[contains(text(),'ADD TERM')]'.</msg>
+<status status="PASS" starttime="20210831 18:38:31.165" endtime="20210831 18:38:32.131"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:28.216" endtime="20210831 18:38:32.131"/>
+</kw>
+<kw name="Edit New Customer Offer Name" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_offerName}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:32.131" endtime="20210831 18:38:32.150"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_offerName}</arg>
+<arg>${newCustomerName_edit}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:32.151" level="INFO">Typing text 'NewCustomerPromo_Edited' into text field 'id:promotionName'.</msg>
+<status status="PASS" starttime="20210831 18:38:32.150" endtime="20210831 18:38:32.372"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:32.131" endtime="20210831 18:38:32.372"/>
+</kw>
+<kw name="Edit X Product" library="res_camp_newCustomer">
+<kw name="Generate Random String" library="String">
+<var>${RANDOM}</var>
+<arg>3</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20210831 18:38:32.373" level="INFO">${RANDOM} = 488</msg>
+<status status="PASS" starttime="20210831 18:38:32.373" endtime="20210831 18:38:32.373"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_prodX}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:32.373" endtime="20210831 18:38:32.390"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_prodX}</arg>
+<arg>${prodX_Edited}${RANDOM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:32.391" level="INFO">Typing text 'editedProdX_488' into text field 'id:promotionBuyName'.</msg>
+<status status="PASS" starttime="20210831 18:38:32.391" endtime="20210831 18:38:32.553"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:32.372" endtime="20210831 18:38:32.553"/>
+</kw>
+<kw name="Edit Y Product" library="res_camp_newCustomer">
+<kw name="Generate Random String" library="String">
+<var>${RANDOM}</var>
+<arg>3</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20210831 18:38:32.554" level="INFO">${RANDOM} = 166</msg>
+<status status="PASS" starttime="20210831 18:38:32.553" endtime="20210831 18:38:32.554"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_prodY}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:32.554" endtime="20210831 18:38:32.570"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_prodY}</arg>
+<arg>${prodY_Edited}${RANDOM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:32.570" level="INFO">Typing text 'editedProdY_166' into text field 'id:promotionGetName'.</msg>
+<status status="PASS" starttime="20210831 18:38:32.570" endtime="20210831 18:38:32.681"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:32.553" endtime="20210831 18:38:32.681"/>
+</kw>
+<kw name="Edit X Product Value" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_prodXValue}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:32.681" endtime="20210831 18:38:32.698"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_prodXValue}</arg>
+<arg>${prodX_Editedvalue}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:32.698" level="INFO">Typing text '20001000' into text field 'id:promotionBuy'.</msg>
+<status status="PASS" starttime="20210831 18:38:32.698" endtime="20210831 18:38:32.807"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:32.681" endtime="20210831 18:38:32.808"/>
+</kw>
+<kw name="Edit Y Product Value" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_prodYValue}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:32.808" endtime="20210831 18:38:32.825"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_prodYValue}</arg>
+<arg>${prodY_Editedvalue}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:32.826" level="INFO">Typing text '25500' into text field 'id:promotionGet'.</msg>
+<status status="PASS" starttime="20210831 18:38:32.825" endtime="20210831 18:38:32.928"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:32.808" endtime="20210831 18:38:32.928"/>
+</kw>
+<kw name="Edit Minimum Spend" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_minSpend}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:32.928" endtime="20210831 18:38:32.944"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_minSpend}</arg>
+<arg>${minSpendEdit}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:32.945" level="INFO">Typing text '10000' into text field 'id:promotionMinimumSpending'.</msg>
+<status status="PASS" starttime="20210831 18:38:32.944" endtime="20210831 18:38:33.043"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:32.928" endtime="20210831 18:38:33.043"/>
+</kw>
+<kw name="Click Save Edit" library="res_camp_newCustomer">
+<kw name="Scroll Element Into View" library="Selenium2Library">
+<arg>${btn_saveEdit}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20210831 18:38:33.044" endtime="20210831 18:38:33.320"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210831 18:38:35.322" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210831 18:38:33.321" endtime="20210831 18:38:35.323"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_saveEdit}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210831 18:38:35.324" endtime="20210831 18:38:35.359"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_saveEdit}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:35.359" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[2]/a[1]'.</msg>
+<status status="PASS" starttime="20210831 18:38:35.359" endtime="20210831 18:38:35.783"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210831 18:38:40.785" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210831 18:38:35.783" endtime="20210831 18:38:40.786"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:33.044" endtime="20210831 18:38:40.787"/>
+</kw>
+<kw name="Success Edit Message is displayed" library="res_camp_newCustomer">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<arg>${sucEditMsg}</arg>
+<arg>${delay}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210831 18:38:40.789" endtime="20210831 18:38:40.829"/>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>${sucEditMsg}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20210831 18:38:40.840" level="INFO">Current page contains text 'Your Campaign has been updated and will be visible by your customers at the appointed time.'.</msg>
+<status status="PASS" starttime="20210831 18:38:40.829" endtime="20210831 18:38:40.840"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_closeEdit}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210831 18:38:40.840" level="INFO">Clicking element 'xpath://body/div[3]/div[2]/ul[1]/li[1]/button[1]'.</msg>
+<status status="PASS" starttime="20210831 18:38:40.840" endtime="20210831 18:38:41.529"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210831 18:38:43.532" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210831 18:38:41.529" endtime="20210831 18:38:43.533"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:40.788" endtime="20210831 18:38:43.534"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:05.129" endtime="20210831 18:38:43.535"/>
+</kw>
+<status status="PASS" starttime="20210831 18:38:05.125" endtime="20210831 18:38:43.536"/>
+</test>
+<doc>Verify create New Customer Offer is successfully</doc>
+<status status="PASS" starttime="20210831 18:38:04.066" endtime="20210831 18:38:43.540"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="newCust buyXgetY">newCust buyXgetY</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

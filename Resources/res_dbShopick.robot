@@ -62,6 +62,8 @@ Delete Loyalty
 
 ###Delete Campaign###
 Delete New Customer Campaign
+    ${delNewCustByPromoID}     execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${newCustomerName}');
+    ${delNewCustByPromoID}     execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${newCustomerName_edit}');
     ${del_newCust}             execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${newCustomerName}';
     ${del_newCustEdited}       execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${newCustomerName_edit}';
 Delete Second Visit Campaign

@@ -17,7 +17,7 @@ ${fld_offerEnddate}             name:promotionExpired
 ${btn_newC_uploadImage}         xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/form[1]/ul[1]/li[11]/div[1]/input[1]
 ${btn_Crop}                     xpath://body[1]/div[1]/div[2]/ul[1]/li[2]/button[1]
 ${btn_cancelCrop}               xpath://body[1]/div[1]/div[2]/ul[1]/li[1]/button[1]
-${CampaignImage}                /Users/machruk/Documents/Gift.png
+${CampaignImage}                /Users/machruk/Downloads/Gift.png
 
 ${rdBtn_tnc1}                   xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[1]/li[1]/a[1]
 ${rdBtn_tnc2}                   xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[1]/li[2]/a[1]
@@ -54,6 +54,11 @@ ${prodX_name}                   prodX_
 ${prodY_name}                   prodY_
 ${prodX_value}                  20000000
 ${prodY_value}                  25000
+
+${prodX_Edited}                 editedProdX_
+${prodY_Edited}                 editedProdY_
+${prodX_Editedvalue}            20001000
+${prodY_Editedvalue}            25500
 
 ${sucMsg}                       Your Campaign has been published and will be visible by your customers at the appointed time.
 ${sucEditMsg}                   Your Campaign has been updated and will be visible by your customers at the appointed time.
@@ -199,7 +204,25 @@ Input Y Product Value
     Wait Until Element is Enabled               ${fld_prodYValue}               ${delay}
     Input Text                                  ${fld_prodYValue}               ${prodY_value}
 
-###Cash Voucher
+#Edit buyXgetY
+Edit X Product
+    ${RANDOM}=                                  Generate Random String          3   [NUMBERS]
+    Wait Until Element is Enabled               ${fld_prodX}                    ${delay}
+    Input Text                                  ${fld_prodX}                    ${prodX_Edited}${RANDOM}
+Edit Y Product
+    ${RANDOM}=                                  Generate Random String          3   [NUMBERS]
+    Wait Until Element is Enabled               ${fld_prodY}                    ${delay}
+    Input Text                                  ${fld_prodY}                    ${prodY_Edited}${RANDOM}
+Edit X Product Value
+    Wait Until Element is Enabled               ${fld_prodXValue}               ${delay}
+    Input Text                                  ${fld_prodXValue}               ${prodX_Editedvalue}
+Edit Y Product Value
+    Wait Until Element is Enabled               ${fld_prodYValue}               ${delay}
+    Input Text                                  ${fld_prodYValue}               ${prodY_Editedvalue}
+
+
+
+#Cash Voucher
 Select Cash Voucher Type
     Wait Until Element is Enabled               ${drpdwn_offerType}             ${delay}
     Click Element                               ${drpdwn_offerType}
