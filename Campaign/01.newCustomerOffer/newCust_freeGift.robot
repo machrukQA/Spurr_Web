@@ -15,6 +15,8 @@ Verify create New Customer Offer (Free Gift) is successfully
     New Customer => Free Gift => Step 2
     New Customer => Free Gift => Step 3
 
+
+
 *** Keywords ***
 New Customer => Free Gift => Step 1
     Go to Outlet menu

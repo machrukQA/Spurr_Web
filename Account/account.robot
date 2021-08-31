@@ -14,11 +14,11 @@ Suite Setup         Connect To Database     pymysql  ${DBName}   ${DBUser}   ${D
 
 Verify the features On Account Details are working properly
     Go to Account Details
-    #Verify Edit Phone Number is Successfully
-    #Verify Phone Number is Successfully
+    Verify Edit Phone Number is Successfully
+    Verify Phone Number is Successfully
     #Verify Edit Email is Successfully
     #Verify Email is Successfully
-    Click Download Receipt button
+    #Click Download Receipt button
 
 
 
@@ -40,10 +40,10 @@ Verify Edit Phone Number is Successfully
     Edit Mobile Number
     Save Edit Account Details
     Verify Success Message is displayed after account edited
-    #Click Edit Details
-    #Edit back to Valid Number
-    #Save Edit Account Details
-    #Verify Success Message is displayed after account edited
+    Click Edit Details
+    Edit back to Valid Number
+    Save Edit Account Details
+    Verify Success Message is displayed after account edited
 Verify Phone Number is Successfully
     Enter OTP Code
     Phone Number is Verified

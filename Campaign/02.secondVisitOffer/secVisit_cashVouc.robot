@@ -12,10 +12,12 @@ Suite Teardown      Close Browser
 *** Test Cases ***
 Delete DB Campaign
     Delete Second Visit Campaign
-Verify create Second Visit Offer (Cash Voucher) is successfully
+Verify Create Second Visit Offer (Cash Voucher) is successfully
     Second Visit => Cash Voucher => Step 1
     Second Visit => Cash Voucher => Step 2
     Second Visit => Cash Voucher => Step 3
+Verify Edit Second Visit Offer (Cash Voucher) is successfully
+    Edit Second Visit Campaign
 
 
 
@@ -23,7 +25,7 @@ Verify create Second Visit Offer (Cash Voucher) is successfully
 
 
 *** Keywords ***
-###Cash Voucher###
+###Create Cash Voucher###
 Second Visit => Cash Voucher => Step 1
     Go to Outlet menu
     Click Create Campaign
@@ -42,3 +44,13 @@ Second Visit => Cash Voucher => Step 3
     Add T&C
     Click Publish
     Success Message is displayed
+
+###Edit Cash Voucher###
+Edit Second Visit Campaign
+   Click Edit Campaign
+   Add Term & Condition
+   Edit Second Visit Offer Name
+   Edit Offer Value
+   Edit Minimum Spend
+   Click Save Edit
+   Success Edit Message is displayed

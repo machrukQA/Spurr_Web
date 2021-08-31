@@ -12,11 +12,12 @@ ${btn_next}                     xpath://body[1]/ul[1]/li[2]/section[1]/div[1]/ul
 ${fld_offerName}                id:promotionName
 ${fld_minSpend}                 id:promotionMinimumSpending
 ${fld_offerValue}               id:promotionValue
-${fld_offerStrdate}             xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/form[1]/ul[1]/li[9]/input[1]
-${fld_offerEnddate}             xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/form[1]/ul[1]/li[10]/input[1]
+${fld_offerStrdate}             name:promotionStart
+${fld_offerEnddate}             name:promotionExpired
 ${btn_newC_uploadImage}         xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/form[1]/ul[1]/li[11]/div[1]/input[1]
 ${btn_Crop}                     xpath://body[1]/div[1]/div[2]/ul[1]/li[2]/button[1]
 ${btn_cancelCrop}               xpath://body[1]/div[1]/div[2]/ul[1]/li[1]/button[1]
+${CampaignImage}                /Users/machruk/Documents/Gift.png
 
 ${rdBtn_tnc1}                   xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[1]/li[1]/a[1]
 ${rdBtn_tnc2}                   xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[1]/li[2]/a[1]
@@ -55,7 +56,28 @@ ${prodX_value}                  20000000
 ${prodY_value}                  25000
 
 ${sucMsg}                       Your Campaign has been published and will be visible by your customers at the appointed time.
+${sucEditMsg}                   Your Campaign has been updated and will be visible by your customers at the appointed time.
 ${btn_closeMsg}                 xpath://button[contains(text(),'Close')]
+
+
+###Edit Campaign###
+${btn_editCampaign}             xpath://a[contains(text(),'EDIT CAMPAIGN')]
+${fldEdit_addTerm}              xpath://body[1]/ul[1]/li[2]/section[2]/ul[1]/li[1]/div[2]/ul[2]/li[1]/textarea[1]
+${EditTermText}                 Term text edited
+${btn_EditTerm}                 xpath://button[contains(text(),'ADD TERM')]
+${drpwnEdit_offerType}          xpath://body[1]/ul[1]/li[2]/section[2]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/form[1]/ul[1]/li[2]/span[1]/span[1]/span[1]/span[1]
+${btn_saveEdit}                 xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[2]/a[1]
+
+${newCustomerName_edit}         NewCustomerPromo_Edited
+${secVisitName_edit}            SecondVisitPromo_Edited
+${brthdyMonthName_edit}         BirthdayMonthPromo_Edited
+${annivName_edit}               AnniversaryPromo_Edited
+${lostCustName_edit}            LostCustomerPromo_Edited
+
+${offerValue_Edit}              1750000
+${minSpendEdit}                 10000
+${btn_closeEdit}                xpath://body/div[3]/div[2]/ul[1]/li[1]/button[1]
+
 
 
 
@@ -81,7 +103,7 @@ Select New Customer Offer
     wait until element is enabled               ${rdBtn_NewCstmr}               ${delay}
     click element                               ${rdBtn_NewCstmr}
 Click Next button
-    #Scroll element into view                    ${btn_next}
+    Scroll element into view                    ${btn_next}
     wait until element is enabled               ${btn_next}                     ${delay}
     click element                               ${btn_next}
 ###=>Step2 => Free Gift
@@ -131,13 +153,14 @@ Select Offer Period
     click element                               //*[@class='ui-datepicker-calendar']//*[contains(text(),'${int}')]
 Click Upload Image
     Wait Until Element is Enabled               ${btn_newC_uploadImage}         ${delay}
-    Choose File                                 ${btn_newC_uploadImage}         ${image}
-    Sleep                                       1
+    Choose File                                 ${btn_newC_uploadImage}         ${CampaignImage}
+    Sleep                                       3
     Wait Until Element is Enabled               ${btn_Crop}                     ${delay}
     Click Button                                ${btn_Crop}
 
 Click Next to Step 3
-    Sleep                                       3
+    Sleep                                       2
+    Scroll element into view                    ${btn_next}
     wait until element is enabled               ${btn_next}                     ${delay}
     click element                               ${btn_next}
 
@@ -212,8 +235,57 @@ Success Message is displayed
     Wait until page contains                    ${sucMsg}                       ${delay}
     Page should contain                         ${sucMsg}
     Click element                               ${btn_closeMsg}
+    Sleep                                       7
+
+Success Edit Message is displayed
+    Wait until page contains                    ${sucEditMsg}                       ${delay}
+    Page should contain                         ${sucEditMsg}
+    Click element                               ${btn_closeEdit}
+    Sleep                                       2
 
 
+###Edit Campaign###
+Click Edit Campaign
+    Sleep                                       2
+    wait until element is enabled               ${btn_editCampaign}             ${delay}
+    click element                               ${btn_editCampaign}
+Add Term & Condition
+    Sleep                                       2
+    wait until element is enabled               ${fldEdit_addTerm}              ${delay}
+    input text                                  ${fldEdit_addTerm}              ${EditTermText}
+    click element                               ${btn_EditTerm}
+Edit New Customer Offer Name
+    wait until element is enabled               ${fld_offerName}                ${delay}
+    input text                                  ${fld_offerName}                ${newCustomerName_edit}
+Edit Second Visit Offer Name
+    wait until element is enabled               ${fld_offerName}                ${delay}
+    input text                                  ${fld_offerName}                ${secVisitName_edit}
+Edit Birthday Month Offer Name
+    wait until element is enabled               ${fld_offerName}                ${delay}
+    input text                                  ${fld_offerName}                ${brthdyMonthName_edit}
+Edit Anniversary Offer Name
+    wait until element is enabled               ${fld_offerName}                ${delay}
+    input text                                  ${fld_offerName}                ${annivName_edit}
+Edit Lost Customer Name
+    wait until element is enabled               ${fld_offerName}                ${delay}
+    input text                                  ${fld_offerName}                ${lostCustName_edit}
 
+Edit Offer Type to Free Gift
+    Wait Until Element is Enabled               ${drpwnEdit_offerType}          ${delay}
+    Click Element                               ${drpwnEdit_offerType}
+    Wait Until Element is Enabled               ${opt_freeGift}                 ${delay}
+    Click Element                               ${opt_freeGift}
+Edit Offer Value
+    wait until element is enabled               ${fld_offerValue}               ${delay}
+    input text                                  ${fld_offerValue}               ${offerValue_Edit}
+Edit Minimum Spend
+    wait until element is enabled               ${fld_minSpend}                 ${delay}
+    input text                                  ${fld_minSpend}                 ${minSpendEdit}
+Click Save Edit
+    Scroll element into view                    ${btn_saveEdit}
+    Sleep                                       2
+    wait until element is enabled               ${btn_saveEdit}                 ${delay}
+    click element                               ${btn_saveEdit}
+    Sleep                                       5
 
 

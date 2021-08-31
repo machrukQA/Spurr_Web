@@ -6,7 +6,7 @@ Library             OperatingSystem
 *** Variables ***
 ${delay}                    10
 ${url}                      https://app-dev-v2.gospurr.com/
-${browser}                  firefox
+${browser}                  chrome
 
 ${btn_Signup}               xpath://a[contains(text(),'SIGN UP')]
 ${menu_account}             xpath://a[contains(text(),'Account')]
@@ -265,6 +265,6 @@ Click Get Started Button
 
 ###Go to Account Detail###
 Click Account Menu
-    Wait Until Element is Enabled           ${menu_account}             ${delay}
+    Wait Until Element is Enabled           ${menu_account}                 ${delay}
     Click Element                           ${menu_account}
 

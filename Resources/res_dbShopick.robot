@@ -1,16 +1,17 @@
 *** Settings ***
 Library             DatabaseLibrary
 Library             OperatingSystem
+Resource            ../../Resources/res_camp_newCustomer.robot
 
 
 *** Variable ***
-${DBName}       shopick_v2
-${DBUser}       qa
-${DBPass}       DWkg8yNJjZMYFwgd
-${DBHost}       34.68.209.108
-${DBPort}       3306
-${memberId}     076811a1-dcf1-11eb-bce9-42010a715007
-${camp_secVisit}    SecondVisitPromo_Auto
+${DBName}               shopick_v2
+${DBUser}               qa
+${DBPass}               DWkg8yNJjZMYFwgd
+${DBHost}               34.68.209.108
+${DBPort}               3306
+${memberId}             076811a1-dcf1-11eb-bce9-42010a715007
+
 
 
 
@@ -58,7 +59,30 @@ Delete Campaign Redeem Transaction
     ${del_Transac_Checkin}      execute sql string      Delete from shopick_v2.campaign_transaction_redeem where redeem_member_id= '${memberId}';
 Delete Loyalty
     ${del_loyalty}              execute sql string      Delete from shopick_v2.loyalty_master_loyalty WHERE loyalty_merchant_id='ea998a56-dcf1-11eb-bce9-42010a715007';
+
+###Delete Campaign###
+Delete New Customer Campaign
+    ${del_newCust}             execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${newCustomerName}';
+    ${del_newCustEdited}       execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${newCustomerName_edit}';
 Delete Second Visit Campaign
-    ${del_campaign}             execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${camp_secVisit}';
+    ${del_SecVisit}             execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${secVisitName}';
+    ${del_SecVisitEdited}       execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${secVisitName_edit}';
+Delete Birthday Month Campaign
+    ${delCampaignByPromoID}     execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${brthdyMonthName}');
+    ${delEditedCampByPromoID}   execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${brthdyMonthName_edit}');
+    ${del_birthdayMonth}        execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${brthdyMonthName}';
+    ${del_birthdatMonth_Edited}       execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${brthdyMonthName_edit}';
+Delete Anniversary Campaign
+    ${del_anniv}                execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${annivName}';
+    ${del_annivEdited}          execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${annivName_edit}';
+Delete Lost Customer Campaign
+    ${delLostCustByPromoID}     execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${lostCustName}');
+    ${dellostCustByPromoID}     execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${lostCustName_edit}');
+    ${del_lostCust}                execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${lostCustName}';
+    ${del_lostCustEdited}          execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${lostCustName_edit}';
+
+
+
+
 Update Database
     ${update}                   execute sql string      Update shopick_v2.master_member set member_value=0, member_stamp=0, member_spending=0 where member_id= '${memberId}';

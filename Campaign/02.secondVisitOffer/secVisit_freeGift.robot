@@ -3,6 +3,8 @@ Documentation       Verify create Second Visit Offer is successfully
 Library             Selenium2Library
 Library             DateTime
 Library             String
+Library             BuiltIn
+Library             OperatingSystem
 Resource            ../../Resources/res_Signup.robot
 Resource            ../../Resources/res_camp_newCustomer.robot
 Resource            ../../Resources/res_dbShopick.robot
@@ -15,7 +17,7 @@ Delete DB Campaign
 Verify create Second Visit Offer (Free Gift) is successfully
     Second Visit => Free Gift => Step 1
     Second Visit => Free Gift => Step 2
-    #Second Visit => Free Gift => Step 3
+    Second Visit => Free Gift => Step 3
 
 
 
@@ -35,7 +37,7 @@ Second Visit => Free Gift => Step 2
     Input Minimum Spending
     Select Offer Period
     Click Upload Image
-    #Click Next to Step 3
+    Click Next to Step 3
 Second Visit => Free Gift => Step 3
     #Click T&C 1 Radio Button
     #Click T&C 2 Radio Button
