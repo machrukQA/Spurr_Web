@@ -23,7 +23,7 @@ Verify Edit Birthday Month Offer (Free Gift) is successfully
 
 *** Keywords ***
 Birthday Month => Free Gift => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Birthday Month Offer
     Click Next button

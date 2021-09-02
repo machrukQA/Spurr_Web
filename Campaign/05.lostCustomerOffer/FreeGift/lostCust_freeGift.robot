@@ -28,7 +28,7 @@ Verify edit Lost Customer Offer (Free Gift) is successfully
 *** Keywords ***
 #Verify create New Costomer offer is successfully
 Lost Customer => Free Gift => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Lost Customer Offer
     Click Next button

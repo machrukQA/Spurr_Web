@@ -57,7 +57,7 @@ True to run command without an explicit transaction commit or rollback.</doc>
 </test>
 <test id="s1-t2" name="Verify create New Customer Offer (Cash Voucher) is successfully">
 <kw name="New Customer =&gt; Cash Voucher =&gt; Step 1">
-<kw name="Go to Outlet menu" library="res_camp_newCustomer">
+<kw name="Go to Campaign menu" library="res_camp_newCustomer">
 <kw name="Open GoSpurr.com" library="res_Signup">
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${url}</arg>

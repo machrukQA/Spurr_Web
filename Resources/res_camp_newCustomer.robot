@@ -89,7 +89,7 @@ ${btn_closeEdit}                xpath://body/div[3]/div[2]/ul[1]/li[1]/button[1]
 
 
 *** Keywords ***
-Go to Outlet menu
+Go to Campaign menu
     Open GoSpurr.com
     wait until element is enabled               ${menu_campaign}                ${delay}
     click element                               ${menu_campaign}

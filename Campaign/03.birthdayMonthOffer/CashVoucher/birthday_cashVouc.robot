@@ -23,7 +23,7 @@ Verify Edit Birthday Month Offer (Cash Voucher) is successfully
 *** Keywords ***
 ###Cash Voucher###
 Birthday Month => Cash Voucher => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Birthday Month Offer
     Click Next button

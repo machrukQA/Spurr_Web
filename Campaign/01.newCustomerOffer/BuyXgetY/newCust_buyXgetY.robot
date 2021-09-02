@@ -30,7 +30,7 @@ Verify edit New Customer Offer (Buy X Get Y) is successfully
 *** Keywords ***
 ###Buy X Get Y###
 New Customer => Buy X Get Y => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select New Customer Offer
     Click Next button
@@ -54,7 +54,7 @@ New Customer => Buy X Get Y => Step 3
 
 ###Edit Buy X Get Y###
 Edit Buy X Get Y Campaign
-    Go to Outlet menu
+    Go to Campaign menu
     Click Edit Campaign
     Add Term & Condition
     Edit New Customer Offer Name

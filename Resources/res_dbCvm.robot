@@ -12,6 +12,7 @@ ${DBHost}       34.68.209.108
 ${DBPort}       3306
 ${memberId}     eae671a8-dcf1-11eb-bce9-42010a715007
 
+
 ${phone}        +6285281114886
 ${camp_secVisit}    SecondVisitPromo_380739
 

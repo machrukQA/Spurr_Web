@@ -28,7 +28,7 @@ Verify edit Lost Customer Offer (Cash Voucher) is successfully
 *** Keywords ***
 ###Cash Voucher###
 Lost Customer => Cash Voucher => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Lost Customer Offer
     Click Next button

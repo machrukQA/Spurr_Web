@@ -23,7 +23,7 @@ Verify edit New Customer Offer (Cash Voucher) is successfully
 *** Keywords ***
 ###Cash Voucher###
 New Customer => Cash Voucher => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select New Customer Offer
     Click Next button

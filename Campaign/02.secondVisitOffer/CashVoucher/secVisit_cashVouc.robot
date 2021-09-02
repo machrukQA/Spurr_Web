@@ -28,7 +28,7 @@ Verify Edit Second Visit Offer (Cash Voucher) is successfully
 *** Keywords ***
 ###Create Cash Voucher###
 Second Visit => Cash Voucher => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Second Visit Offer
     Click Next button

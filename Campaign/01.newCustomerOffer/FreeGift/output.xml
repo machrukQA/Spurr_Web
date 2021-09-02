@@ -15,7 +15,7 @@ connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
 </kw>
 <test id="s1-t1" name="Verify edit New Customer Offer (Free Gift) is successfully">
 <kw name="Edit New Customer Campaign">
-<kw name="Go to Outlet menu" library="res_camp_newCustomer">
+<kw name="Go to Campaign menu" library="res_camp_newCustomer">
 <kw name="Open GoSpurr.com" library="res_Signup">
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${url}</arg>

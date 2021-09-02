@@ -27,7 +27,7 @@ Verify create Anniversary Offer (Buy X Get Y) is successfully
 *** Keywords ***
 ###Buy X Get Y###
 Anniversary => Buy X Get Y => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Anniversary Offer
     Click Next button

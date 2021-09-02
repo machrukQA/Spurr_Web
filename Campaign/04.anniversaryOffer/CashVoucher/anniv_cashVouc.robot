@@ -28,7 +28,7 @@ Verify edit Anniversary Offer (Cash Voucher) is successfully
 
 *** Keywords ***
 Anniversary => Cash Voucher => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Anniversary Offer
     Click Next button

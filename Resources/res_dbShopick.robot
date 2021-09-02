@@ -11,8 +11,7 @@ ${DBPass}               DWkg8yNJjZMYFwgd
 ${DBHost}               34.68.209.108
 ${DBPort}               3306
 ${memberId}             076811a1-dcf1-11eb-bce9-42010a715007
-
-
+${merchantId}           ea998a56-dcf1-11eb-bce9-42010a715007
 
 
 
@@ -80,11 +79,13 @@ Delete Anniversary Campaign
 Delete Lost Customer Campaign
     ${delLostCustByPromoID}     execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${lostCustName}');
     ${dellostCustByPromoID}     execute sql string      Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${lostCustName_edit}');
-    ${del_lostCust}                execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${lostCustName}';
-    ${del_lostCustEdited}          execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${lostCustName_edit}';
+    ${del_lostCust}             execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${lostCustName}';
+    ${del_lostCustEdited}       execute sql string      Delete from shopick_v2.campaign_master_promotion where promotion_name='${lostCustName_edit}';
 
-
-
+###Delete Priority Status
+Delete Priority Status from DB
+    ${del_priorMerchant}        execute sql string      Delete from shopick_v2.loyalty_master_priority where priority_merchant_id IN (SELECT merchant_id FROM shopick_v2.master_merchant WHERE merchant_id='${merchantId}');
+    Log to Console              ${del_priorMerchant}
 
 Update Database
     ${update}                   execute sql string      Update shopick_v2.master_member set member_value=0, member_stamp=0, member_spending=0 where member_id= '${memberId}';

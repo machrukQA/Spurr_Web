@@ -24,7 +24,7 @@ Verify create Birthday Month Offer (Buy X Get Y) is successfully
 *** Keywords ***
 ###Buy X Get Y###
 Birthday Month => Buy X Get Y => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Birthday Month Offer
     Click Next button

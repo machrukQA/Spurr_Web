@@ -30,7 +30,7 @@ Verify Edit Second Visit Offer (Cash Voucher) is successfully
 *** Keywords ***
 #Verify create New Costomer offer is successfully
 Second Visit => Free Gift => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Second Visit Offer
     Click Next button

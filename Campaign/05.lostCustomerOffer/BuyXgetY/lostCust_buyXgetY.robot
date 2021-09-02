@@ -28,7 +28,7 @@ Verify edit Lost Customer Offer (Buy X Get Y) is successfully
 *** Keywords ***
 ###Buy X Get Y###
 Lost Customer => Buy X Get Y => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select Lost Customer Offer
     Click Next button

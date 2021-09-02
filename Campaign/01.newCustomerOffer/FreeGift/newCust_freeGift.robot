@@ -25,7 +25,7 @@ Verify create New Customer Offer (Free Gift) is successfully
 
 *** Keywords ***
 New Customer => Free Gift => Step 1
-    Go to Outlet menu
+    Go to Campaign menu
     Click Create Campaign
     Select New Customer Offer
     Click Next button
