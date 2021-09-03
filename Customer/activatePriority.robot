@@ -13,23 +13,23 @@ Suite Setup         Connect To Database     pymysql  ${DBName}   ${DBUser}   ${D
 
 
 *** Test Cases ***
+Delete Priority Status from DB
+    Delete Priority Status from DB
+
 Go to Customer menu
     Go to Customer menu
 
 Verify Activate & Edit Stamp type (6 months) is successfully
-    Delete Priority Status from DB
-    Reload Page
-    Sleep           5
     Verify Activate Stamp type (6 months) is successfully
-    Verify Edit Stamp to Spent type (6 months) is successfully
+    Verify Edit Stamp to Spent type (12 months) is successfully
     Sleep           5
 
-Verify Activate & Edit Priority Customer (12 months) is successfully
+Verify Activate & Edit Spent Type (12 months) is successfully
     Delete Priority Status from DB
     Reload Page
     Sleep            5
-    Verify Activate Priority Customer (12 months) is successfully
-    Verify Edit Spent to Stamp type (12 months) is successfully
+    Verify Activate Spent Type (12 months) is successfully
+    Verify Edit Spent to Stamp type (6 months) is successfully
 
 Verify Edit Period is successfully
     Verify Edit Period is successfully
@@ -46,7 +46,7 @@ Verify Activate Stamp type (6 months) is successfully
     Add Term & Conditions
     Click Publish Priority
     Verify Success Message is displayed
-Verify Activate Priority Customer (12 months) is successfully
+Verify Activate Spent Type (12 months) is successfully
     Click Activate Priority Customers
     Select Stamp Type
     Input Target Stamp/Spend
@@ -59,7 +59,7 @@ Verify Activate Priority Customer (12 months) is successfully
 
 
 ###Edit Segment
-Verify Edit Stamp to Spent type (6 months) is successfully
+Verify Edit Stamp to Spent type (12 months) is successfully
     Click Edit Segment
     Edit to Spent Type
     Edit Target Stamp/Spend
@@ -68,7 +68,7 @@ Verify Edit Stamp to Spent type (6 months) is successfully
     Edit Term & Conditions
     Click Publish Priority
     Verify Success Message is displayed
-Verify Edit Spent to Stamp type (12 months) is successfully
+Verify Edit Spent to Stamp type (6 months) is successfully
     Click Edit Segment
     Edit to Stamp Type
     Edit Target Stamp/Spend

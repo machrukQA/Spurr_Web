@@ -17,7 +17,7 @@ ${fld_offerEnddate}             name:promotionExpired
 ${btn_newC_uploadImage}         xpath://body/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/form[1]/ul[1]/li[11]/div[1]/input[1]
 ${btn_Crop}                     xpath://body[1]/div[1]/div[2]/ul[1]/li[2]/button[1]
 ${btn_cancelCrop}               xpath://body[1]/div[1]/div[2]/ul[1]/li[1]/button[1]
-${CampaignImage}                /Users/machruk/Downloads/Gift.png
+${CampaignImage}                /Users/machruk/Documents/test.jpg
 
 ${rdBtn_tnc1}                   xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[1]/li[1]/a[1]
 ${rdBtn_tnc2}                   xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[1]/li[2]/a[1]
@@ -147,9 +147,10 @@ Input Minimum Spending
 Select Offer Period
     ${slct_StrtDate}=                           Get Current Date
     ${startDate}=                               Convert Date                    ${slct_StrtDate}                result_format=%d
+    ${intStrDate}                               Convert To Integer              ${startDate}
     Sleep                                       2
     click element                               ${fld_offerStrdate}
-    click element                               //*[@class='ui-datepicker-calendar']//*[contains(text(),'${startDate}')]
+    click element                               //*[@class='ui-datepicker-calendar']//*[contains(text(),'${intStrDate}')]
     Sleep                                       2
     ${slct_EndDate}=                            Add Time To Date                ${slct_StrtDate}                7 Days
     ${EndDate}=                                 Convert Date                    ${slct_EndDate}                 result_format=%d

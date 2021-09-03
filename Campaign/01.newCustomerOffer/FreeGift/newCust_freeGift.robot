@@ -37,8 +37,6 @@ New Customer => Free Gift => Step 2
     Select Offer Period
     Click Upload Image
     Click Next button
-    Click Upload Image
-    Click Next button
 New Customer => Free Gift => Step 3
     #Click T&C 1 Radio Button
     #Click T&C 2 Radio Button

@@ -7,7 +7,7 @@ Resource            ../../../Resources/res_Signup.robot
 Resource            ../../../Resources/res_camp_newCustomer.robot
 Resource            ../../../Resources/res_dbShopick.robot
 Suite Setup         Connect To Database     pymysql  ${DBName}   ${DBUser}   ${DBPass}   ${DBHost}   ${DBPort}
-Suite Teardown      Close Browser
+#Suite Teardown      Close Browser
 
 *** Test Cases ***
 Delete Existing Campaign

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210903 18:44:02.700" rpa="false" schemaversion="2">
+<suite id="s1" name="Setting" source="/Users/machruk/PycharmProjects/Spurr_Web/Setting/setting.robot">
+<kw name="Go to Setting Menu" library="res_Setting" type="SETUP">
+<kw name="Open GoSpurr.com" library="res_Signup">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210903 18:44:02.908" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
+<status status="PASS" starttime="20210903 18:44:02.908" endtime="20210903 18:44:08.012"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210903 18:44:08.013" endtime="20210903 18:44:08.142"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_Signup}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:08.142" endtime="20210903 18:44:08.194"/>
+</kw>
+<kw name="Valid Login with New Password" library="res_Signup">
+<kw name="Input New Username" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:08.194" endtime="20210903 18:44:08.212"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Usrname}</arg>
+<arg>${valid_Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:08.212" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210903 18:44:08.212" endtime="20210903 18:44:08.490"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:08.194" endtime="20210903 18:44:08.490"/>
+</kw>
+<kw name="New Password" library="res_Signup">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${field_Pwd}</arg>
+<arg>${newPwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:08.491" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210903 18:44:08.491" endtime="20210903 18:44:08.583"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:08.490" endtime="20210903 18:44:08.583"/>
+</kw>
+<kw name="Click Login button" library="res_Signup">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_Signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:08.583" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210903 18:44:08.583" endtime="20210903 18:44:08.957"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:08.583" endtime="20210903 18:44:08.957"/>
+</kw>
+<kw name="Verify Login is successfully" library="res_Signup">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:08.957" endtime="20210903 18:44:11.568"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${menu_Dshbrd}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210903 18:44:11.572" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
+<status status="PASS" starttime="20210903 18:44:11.568" endtime="20210903 18:44:11.572"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:08.957" endtime="20210903 18:44:11.572"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:08.194" endtime="20210903 18:44:11.572"/>
+</kw>
+<kw name="Waiting to Load" library="res_Signup">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:16.575" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210903 18:44:11.572" endtime="20210903 18:44:16.575"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:11.572" endtime="20210903 18:44:16.575"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:02.908" endtime="20210903 18:44:16.575"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${menu_setting}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:16.576" endtime="20210903 18:44:16.647"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${menu_setting}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:16.647" level="INFO">Clicking element 'xpath://body[1]/header[1]/ul[1]/li[2]/a[1]'.</msg>
+<status status="PASS" starttime="20210903 18:44:16.647" endtime="20210903 18:44:17.034"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${btn_gnrtQR}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20210903 18:44:17.034" endtime="20210903 18:44:17.136"/>
+</kw>
+<kw name="Waiting to Load" library="res_Signup">
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:22.137" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210903 18:44:17.137" endtime="20210903 18:44:22.138"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:17.136" endtime="20210903 18:44:22.139"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:02.907" endtime="20210903 18:44:22.140"/>
+</kw>
+<test id="s1-t1" name="Verify Activate Spurr Check-In is Successfully">
+<kw name="Activate Spurr Check-In" library="res_Setting">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${toggle_checkIn}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:22.151" endtime="20210903 18:44:22.187"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${toggle_checkIn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:22.187" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[1]/ul[1]/li[2]/a[1]/span[1]/strong[1]'.</msg>
+<status status="PASS" starttime="20210903 18:44:22.187" endtime="20210903 18:44:22.278"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${ChckInToggle_on}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210903 18:44:22.308" level="INFO">Current page contains element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[1]/ul[1]/li[2]/a[@class='as-switch checkin is-on']'.</msg>
+<status status="PASS" starttime="20210903 18:44:22.278" endtime="20210903 18:44:22.308"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:23.310" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210903 18:44:22.308" endtime="20210903 18:44:23.310"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${toggle_checkIn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:23.313" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[1]/ul[1]/li[2]/a[1]/span[1]/strong[1]'.</msg>
+<status status="PASS" starttime="20210903 18:44:23.311" endtime="20210903 18:44:23.355"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${ChckInToggle_off}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210903 18:44:23.371" level="INFO">Current page contains element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[1]/ul[1]/li[2]/a[@class='as-switch checkin']'.</msg>
+<status status="PASS" starttime="20210903 18:44:23.356" endtime="20210903 18:44:23.371"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Check-In Toggle is working properly</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210903 18:44:23.371" endtime="20210903 18:44:23.371"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:22.146" endtime="20210903 18:44:23.372"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:22.141" endtime="20210903 18:44:23.372"/>
+</test>
+<test id="s1-t2" name="Verify Activate Check-In Temperature is">
+<kw name="Activate Check-In Temperature" library="res_Setting">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${toggle_temperature}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:23.373" endtime="20210903 18:44:23.393"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${toggle_temperature}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:23.394" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[2]/ul[1]/li[2]/a[1]/span[1]/strong[1]'.</msg>
+<status status="PASS" starttime="20210903 18:44:23.393" endtime="20210903 18:44:23.422"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${TemperatureToggle_on}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210903 18:44:23.431" level="INFO">Current page contains element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[2]/ul[1]/li[2]/a[@class='as-switch checkin-temp is-on']'.</msg>
+<status status="PASS" starttime="20210903 18:44:23.423" endtime="20210903 18:44:23.431"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:24.434" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210903 18:44:23.431" endtime="20210903 18:44:24.435"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${toggle_temperature}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:24.438" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[2]/ul[1]/li[2]/a[1]/span[1]/strong[1]'.</msg>
+<status status="PASS" starttime="20210903 18:44:24.436" endtime="20210903 18:44:24.480"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${TemperatureToggle_off}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210903 18:44:24.495" level="INFO">Current page contains element 'xpath://body[1]/ul[1]/li[2]/section[1]/ul[1]/li[2]/ul[1]/li[2]/a[@class='as-switch checkin-temp']'.</msg>
+<status status="PASS" starttime="20210903 18:44:24.481" endtime="20210903 18:44:24.495"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Temperature Toggle is working properly</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210903 18:44:24.495" endtime="20210903 18:44:24.495"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:23.373" endtime="20210903 18:44:24.495"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:23.372" endtime="20210903 18:44:24.496"/>
+</test>
+<test id="s1-t3" name="Verify Download Check-In QR Code is Successfully">
+<kw name="Generate Check-In QR Code" library="res_Setting">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${dir_dwnld}${file_qrCode}${idFile}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20210903 18:44:24.499" level="INFO" html="true">Removed file '&lt;a href="file:///Users/machruk/Downloads/checkin-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf"&gt;/Users/machruk/Downloads/checkin-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210903 18:44:24.497" endtime="20210903 18:44:24.499"/>
+</kw>
+<kw name="File Should Not Exist" library="OperatingSystem">
+<arg>${dir_dwnld}${file_qrCode}${idFile}</arg>
+<doc>Fails if the given path points to an existing file.</doc>
+<msg timestamp="20210903 18:44:24.500" level="INFO" html="true">File '&lt;a href="file:///Users/machruk/Downloads/checkin-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf"&gt;/Users/machruk/Downloads/checkin-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20210903 18:44:24.499" endtime="20210903 18:44:24.500"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>existing file was successfully deleted</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210903 18:44:24.500" endtime="20210903 18:44:24.500"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_gnrtQR}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:24.500" endtime="20210903 18:44:24.519"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_gnrtQR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:24.520" level="INFO">Clicking element 'xpath://a[contains(text(),'GENERATE')]'.</msg>
+<status status="PASS" starttime="20210903 18:44:24.519" endtime="20210903 18:44:24.598"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:27.601" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210903 18:44:24.599" endtime="20210903 18:44:27.601"/>
+</kw>
+<kw name="File Should Exist" library="OperatingSystem">
+<arg>${dir_dwnld}${file_qrCode}${idFile}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<msg timestamp="20210903 18:44:27.602" level="INFO" html="true">File '&lt;a href="file:///Users/machruk/Downloads/checkin-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf"&gt;/Users/machruk/Downloads/checkin-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20210903 18:44:27.601" endtime="20210903 18:44:27.602"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>QR Code was successfully downloaded</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210903 18:44:27.603" endtime="20210903 18:44:27.603"/>
+</kw>
+<kw name="Open Pdf" library="RPA.PDF">
+<arg>${dir_dwnld}${file_qrCode}${idFile}</arg>
+<doc>Open a PDF document for reading.</doc>
+<status status="PASS" starttime="20210903 18:44:27.603" endtime="20210903 18:44:27.604"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:30.606" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210903 18:44:27.604" endtime="20210903 18:44:30.606"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:24.497" endtime="20210903 18:44:30.607"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:24.496" endtime="20210903 18:44:30.608"/>
+</test>
+<test id="s1-t4" name="Verify Download Table Standee is Successfully">
+<kw name="Download Table Standee" library="res_Setting">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${dir_dwnld}${file_standee}${idFile}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20210903 18:44:30.635" level="INFO" html="true">Removed file '&lt;a href="file:///Users/machruk/Downloads/standee-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf"&gt;/Users/machruk/Downloads/standee-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20210903 18:44:30.634" endtime="20210903 18:44:30.636"/>
+</kw>
+<kw name="File Should Not Exist" library="OperatingSystem">
+<arg>${dir_dwnld}${file_standee}${idFile}</arg>
+<doc>Fails if the given path points to an existing file.</doc>
+<msg timestamp="20210903 18:44:30.636" level="INFO" html="true">File '&lt;a href="file:///Users/machruk/Downloads/standee-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf"&gt;/Users/machruk/Downloads/standee-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20210903 18:44:30.636" endtime="20210903 18:44:30.637"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>existing file was successfully deleted</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210903 18:44:30.637" endtime="20210903 18:44:30.637"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_dwnldTable}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:30.637" endtime="20210903 18:44:30.663"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_dwnldTable}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:30.663" level="INFO">Clicking element 'xpath://body/ul[1]/li[2]/section[1]/ul[1]/li[4]/ul[1]/li[2]/a[1]'.</msg>
+<status status="PASS" starttime="20210903 18:44:30.663" endtime="20210903 18:44:30.695"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:33.697" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210903 18:44:30.695" endtime="20210903 18:44:33.697"/>
+</kw>
+<kw name="File Should Exist" library="OperatingSystem">
+<arg>${dir_dwnld}${file_standee}${idFile}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<msg timestamp="20210903 18:44:33.698" level="INFO" html="true">File '&lt;a href="file:///Users/machruk/Downloads/standee-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf"&gt;/Users/machruk/Downloads/standee-6ee5e1096e4ec02004ae50cf7f0abc8d.pdf&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20210903 18:44:33.697" endtime="20210903 18:44:33.699"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Table Standee was successfully downloaded</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210903 18:44:33.699" endtime="20210903 18:44:33.699"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:30.612" endtime="20210903 18:44:33.699"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:30.610" endtime="20210903 18:44:33.700"/>
+</test>
+<test id="s1-t5" name="Verify Spurr Partner Apps Download button is working properly">
+<kw name="Download Spurr Partner Apps" library="res_Setting">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_dwnldSpPartner}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 18:44:33.702" endtime="20210903 18:44:33.735"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_dwnldSpPartner}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 18:44:33.735" level="INFO">Clicking element 'xpath://body/ul[1]/li[2]/section[1]/ul[1]/li[5]/ul[1]/li[2]/a[1]'.</msg>
+<status status="PASS" starttime="20210903 18:44:33.735" endtime="20210903 18:44:37.303"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 18:44:39.305" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210903 18:44:37.303" endtime="20210903 18:44:39.306"/>
+</kw>
+<kw name="Location Should Be" library="Selenium2Library">
+<arg>${playstoreURL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20210903 18:44:40.098" level="INFO">Current location is 'https://play.google.com/store/apps/details?id=biz.shopiq.spurr.scanner'.</msg>
+<status status="PASS" starttime="20210903 18:44:39.306" endtime="20210903 18:44:40.098"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>User was successfully redirected to the playstore page</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210903 18:44:40.098" endtime="20210903 18:44:40.098"/>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>${containURL}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20210903 18:44:40.206" level="INFO">Current page contains text 'Spurr Partners'.</msg>
+<status status="PASS" starttime="20210903 18:44:40.099" endtime="20210903 18:44:40.206"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${btn_install}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210903 18:44:40.218" level="INFO">Current page contains element 'xpath://button[contains(text(),'Install')]'.</msg>
+<status status="PASS" starttime="20210903 18:44:40.207" endtime="20210903 18:44:40.218"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:33.702" endtime="20210903 18:44:40.218"/>
+</kw>
+<status status="PASS" starttime="20210903 18:44:33.701" endtime="20210903 18:44:40.218"/>
+</test>
+<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210903 18:44:40.219" endtime="20210903 18:44:40.294"/>
+</kw>
+<doc>Verify "Setting" features are working properly</doc>
+<status status="PASS" starttime="20210903 18:44:02.701" endtime="20210903 18:44:40.294"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Setting">Setting</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

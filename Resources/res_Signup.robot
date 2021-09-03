@@ -11,6 +11,7 @@ ${browser}                  chrome
 ${btn_Signup}               xpath://a[contains(text(),'SIGN UP')]
 ${menu_account}             xpath://a[contains(text(),'Account')]
 
+
 #SignUp Page
 ${field_FirstName}          id:first_name
 ${field_LastName}           id:last_name

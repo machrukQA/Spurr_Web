@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210831 17:17:50.686" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210903 14:15:28.186" rpa="false" schemaversion="2">
 <suite id="s1" name="newCust freeGift" source="/Users/machruk/PycharmProjects/Spurr_Web/Campaign/01.newCustomerOffer/FreeGift/newCust_freeGift.robot">
 <kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
 <arg>pymysql</arg>
@@ -10,29 +10,71 @@
 <arg>${DBPort}</arg>
 <doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
 connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20210831 17:17:50.844" level="INFO">Connecting using : pymysql.connect(db=cvm_v2, user=qa, passwd=DWkg8yNJjZMYFwgd, host=34.68.209.108, port=3306, charset=None) </msg>
-<status status="PASS" starttime="20210831 17:17:50.836" endtime="20210831 17:17:52.044"/>
+<msg timestamp="20210903 14:15:28.356" level="INFO">Connecting using : pymysql.connect(db=cvm_v2, user=qa, passwd=DWkg8yNJjZMYFwgd, host=34.68.209.108, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20210903 14:15:28.336" endtime="20210903 14:15:29.179"/>
 </kw>
-<test id="s1-t1" name="Verify edit New Customer Offer (Free Gift) is successfully">
-<kw name="Edit New Customer Campaign">
+<test id="s1-t1" name="Delete Existing Campaign">
+<kw name="Delete New Customer Campaign" library="res_dbShopick">
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${delNewCustByPromoID}</var>
+<arg>Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${newCustomerName}');</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20210903 14:15:29.189" level="INFO">Executing : Execute SQL String  |  Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='NewCustomerPromo_Auto'); </msg>
+<msg timestamp="20210903 14:15:29.808" level="INFO">${delNewCustByPromoID} = None</msg>
+<status status="PASS" starttime="20210903 14:15:29.188" endtime="20210903 14:15:29.808"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${delNewCustByPromoID}</var>
+<arg>Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='${newCustomerName_edit}');</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20210903 14:15:29.811" level="INFO">Executing : Execute SQL String  |  Delete from shopick_v2.campaign_transaction_engagement where engagement_promotion_id IN (SELECT promotion_id FROM shopick_v2.campaign_master_promotion WHERE promotion_name='NewCustomerPromo_Edited'); </msg>
+<msg timestamp="20210903 14:15:30.429" level="INFO">${delNewCustByPromoID} = None</msg>
+<status status="PASS" starttime="20210903 14:15:29.809" endtime="20210903 14:15:30.429"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${del_newCust}</var>
+<arg>Delete from shopick_v2.campaign_master_promotion where promotion_name='${newCustomerName}';</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20210903 14:15:30.431" level="INFO">Executing : Execute SQL String  |  Delete from shopick_v2.campaign_master_promotion where promotion_name='NewCustomerPromo_Auto'; </msg>
+<msg timestamp="20210903 14:15:31.046" level="INFO">${del_newCust} = None</msg>
+<status status="PASS" starttime="20210903 14:15:30.430" endtime="20210903 14:15:31.047"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<var>${del_newCustEdited}</var>
+<arg>Delete from shopick_v2.campaign_master_promotion where promotion_name='${newCustomerName_edit}';</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20210903 14:15:31.049" level="INFO">Executing : Execute SQL String  |  Delete from shopick_v2.campaign_master_promotion where promotion_name='NewCustomerPromo_Edited'; </msg>
+<msg timestamp="20210903 14:15:31.664" level="INFO">${del_newCustEdited} = None</msg>
+<status status="PASS" starttime="20210903 14:15:31.048" endtime="20210903 14:15:31.664"/>
+</kw>
+<status status="PASS" starttime="20210903 14:15:29.184" endtime="20210903 14:15:31.665"/>
+</kw>
+<status status="PASS" starttime="20210903 14:15:29.181" endtime="20210903 14:15:31.666"/>
+</test>
+<test id="s1-t2" name="Verify create New Customer Offer (Free Gift) is successfully">
+<kw name="New Customer =&gt; Free Gift =&gt; Step 1">
 <kw name="Go to Campaign menu" library="res_camp_newCustomer">
 <kw name="Open GoSpurr.com" library="res_Signup">
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20210831 17:17:52.053" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
-<status status="PASS" starttime="20210831 17:17:52.052" endtime="20210831 17:17:58.390"/>
+<msg timestamp="20210903 14:15:31.672" level="INFO">Opening browser 'chrome' to base url 'https://app-dev-v2.gospurr.com/'.</msg>
+<status status="PASS" starttime="20210903 14:15:31.671" endtime="20210903 14:15:36.499"/>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210831 17:17:58.390" endtime="20210831 17:17:58.531"/>
+<status status="PASS" starttime="20210903 14:15:36.500" endtime="20210903 14:15:36.632"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${btn_Signup}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:17:58.532" endtime="20210831 17:17:58.599"/>
+<status status="PASS" starttime="20210903 14:15:36.633" endtime="20210903 14:15:36.682"/>
 </kw>
 <kw name="Valid Login with New Password" library="res_Signup">
 <kw name="Input New Username" library="res_Signup">
@@ -40,264 +82,421 @@ connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
 <arg>${field_Usrname}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:17:58.599" endtime="20210831 17:17:58.617"/>
+<status status="PASS" starttime="20210903 14:15:36.683" endtime="20210903 14:15:36.700"/>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <arg>${field_Usrname}</arg>
 <arg>${valid_Email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210831 17:17:58.618" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
-<status status="PASS" starttime="20210831 17:17:58.618" endtime="20210831 17:17:59.042"/>
+<msg timestamp="20210903 14:15:36.700" level="INFO">Typing text 'machruk@gospurr.com' into text field 'id:email'.</msg>
+<status status="PASS" starttime="20210903 14:15:36.700" endtime="20210903 14:15:36.954"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:58.599" endtime="20210831 17:17:59.042"/>
+<status status="PASS" starttime="20210903 14:15:36.683" endtime="20210903 14:15:36.954"/>
 </kw>
 <kw name="New Password" library="res_Signup">
 <kw name="Input Text" library="Selenium2Library">
 <arg>${field_Pwd}</arg>
 <arg>${newPwd}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210831 17:17:59.043" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20210831 17:17:59.043" endtime="20210831 17:17:59.145"/>
+<msg timestamp="20210903 14:15:36.955" level="INFO">Typing text 'Qwerty' into text field 'id:password'.</msg>
+<status status="PASS" starttime="20210903 14:15:36.955" endtime="20210903 14:15:37.043"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:59.043" endtime="20210831 17:17:59.146"/>
+<status status="PASS" starttime="20210903 14:15:36.954" endtime="20210903 14:15:37.043"/>
 </kw>
 <kw name="Click Login button" library="res_Signup">
 <kw name="Click Element" library="Selenium2Library">
 <arg>${btn_Signin}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210831 17:17:59.146" level="INFO">Clicking element 'id:label-button'.</msg>
-<status status="PASS" starttime="20210831 17:17:59.146" endtime="20210831 17:17:59.553"/>
+<msg timestamp="20210903 14:15:37.044" level="INFO">Clicking element 'id:label-button'.</msg>
+<status status="PASS" starttime="20210903 14:15:37.044" endtime="20210903 14:15:37.420"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:59.146" endtime="20210831 17:17:59.554"/>
+<status status="PASS" starttime="20210903 14:15:37.043" endtime="20210903 14:15:37.420"/>
 </kw>
 <kw name="Verify Login is successfully" library="res_Signup">
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${menu_Dshbrd}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:17:59.554" endtime="20210831 17:18:02.298"/>
+<status status="PASS" starttime="20210903 14:15:37.421" endtime="20210903 14:15:39.930"/>
 </kw>
 <kw name="Page Should Contain Element" library="Selenium2Library">
 <arg>${menu_Dshbrd}</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20210831 17:18:02.302" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
-<status status="PASS" starttime="20210831 17:18:02.298" endtime="20210831 17:18:02.302"/>
+<msg timestamp="20210903 14:15:39.934" level="INFO">Current page contains element 'xpath://a[contains(text(),'Dashboard')]'.</msg>
+<status status="PASS" starttime="20210903 14:15:39.930" endtime="20210903 14:15:39.938"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:59.554" endtime="20210831 17:18:02.302"/>
+<status status="PASS" starttime="20210903 14:15:37.420" endtime="20210903 14:15:39.938"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:58.599" endtime="20210831 17:18:02.302"/>
+<status status="PASS" starttime="20210903 14:15:36.683" endtime="20210903 14:15:39.938"/>
 </kw>
 <kw name="Waiting to Load" library="res_Signup">
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210831 17:18:07.304" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210831 17:18:02.303" endtime="20210831 17:18:07.304"/>
+<msg timestamp="20210903 14:15:44.941" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210903 14:15:39.939" endtime="20210903 14:15:44.941"/>
 </kw>
-<status status="PASS" starttime="20210831 17:18:02.302" endtime="20210831 17:18:07.305"/>
+<status status="PASS" starttime="20210903 14:15:39.939" endtime="20210903 14:15:44.941"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:52.051" endtime="20210831 17:18:07.305"/>
+<status status="PASS" starttime="20210903 14:15:31.670" endtime="20210903 14:15:44.941"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${menu_campaign}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:18:07.305" endtime="20210831 17:18:07.353"/>
+<status status="PASS" starttime="20210903 14:15:44.941" endtime="20210903 14:15:45.008"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <arg>${menu_campaign}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:07.354" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[1]/ul[1]/li[3]/a[1]'.</msg>
-<status status="PASS" starttime="20210831 17:18:07.354" endtime="20210831 17:18:07.918"/>
+<msg timestamp="20210903 14:15:45.009" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[1]/ul[1]/li[3]/a[1]'.</msg>
+<status status="PASS" starttime="20210903 14:15:45.009" endtime="20210903 14:15:45.719"/>
 </kw>
 <kw name="Wait Until Page Contains Element" library="Selenium2Library">
 <arg>${btn_crtCampaign}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20210831 17:18:07.919" endtime="20210831 17:18:07.927"/>
+<status status="PASS" starttime="20210903 14:15:45.719" endtime="20210903 14:15:45.728"/>
 </kw>
 <kw name="Waiting to Load" library="res_Signup">
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210831 17:18:12.929" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210831 17:18:07.928" endtime="20210831 17:18:12.930"/>
+<msg timestamp="20210903 14:15:50.730" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210903 14:15:45.729" endtime="20210903 14:15:50.730"/>
 </kw>
-<status status="PASS" starttime="20210831 17:18:07.927" endtime="20210831 17:18:12.931"/>
+<status status="PASS" starttime="20210903 14:15:45.728" endtime="20210903 14:15:50.731"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:52.050" endtime="20210831 17:18:12.931"/>
+<status status="PASS" starttime="20210903 14:15:31.670" endtime="20210903 14:15:50.731"/>
 </kw>
-<kw name="Click Edit Campaign" library="res_camp_newCustomer">
-<kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210831 17:18:14.935" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210831 17:18:12.933" endtime="20210831 17:18:14.936"/>
-</kw>
+<kw name="Click Create Campaign" library="res_camp_newCustomer">
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${btn_editCampaign}</arg>
+<arg>${btn_crtCampaign}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:18:14.937" endtime="20210831 17:18:14.983"/>
+<status status="PASS" starttime="20210903 14:15:50.733" endtime="20210903 14:15:50.766"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
-<arg>${btn_editCampaign}</arg>
+<arg>${btn_crtCampaign}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:14.983" level="INFO">Clicking element 'xpath://a[contains(text(),'EDIT CAMPAIGN')]'.</msg>
-<status status="PASS" starttime="20210831 17:18:14.983" endtime="20210831 17:18:15.637"/>
+<msg timestamp="20210903 14:15:50.767" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/div[1]/ul[1]/li[1]/a[1]'.</msg>
+<status status="PASS" starttime="20210903 14:15:50.766" endtime="20210903 14:15:50.999"/>
 </kw>
-<status status="PASS" starttime="20210831 17:18:12.932" endtime="20210831 17:18:15.638"/>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${rdBtn_NewCstmr}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20210903 14:15:50.999" endtime="20210903 14:15:51.011"/>
 </kw>
-<kw name="Add Term &amp; Condition" library="res_camp_newCustomer">
 <kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
+<arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210831 17:18:17.639" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210831 17:18:15.638" endtime="20210831 17:18:17.639"/>
+<msg timestamp="20210903 14:15:54.014" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210903 14:15:51.011" endtime="20210903 14:15:54.015"/>
 </kw>
+<status status="PASS" starttime="20210903 14:15:50.732" endtime="20210903 14:15:54.016"/>
+</kw>
+<kw name="Select New Customer Offer" library="res_camp_newCustomer">
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${fldEdit_addTerm}</arg>
+<arg>${rdBtn_NewCstmr}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:18:17.640" endtime="20210831 17:18:18.544"/>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<arg>${fldEdit_addTerm}</arg>
-<arg>${EditTermText}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:18.544" level="INFO">Typing text 'Term text edited' into text field 'xpath://body[1]/ul[1]/li[2]/section[2]/ul[1]/li[1]/div[2]/ul[2]/li[1]/textarea[1]'.</msg>
-<status status="PASS" starttime="20210831 17:18:18.544" endtime="20210831 17:18:18.774"/>
+<status status="PASS" starttime="20210903 14:15:54.018" endtime="20210903 14:15:54.049"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
-<arg>${btn_EditTerm}</arg>
+<arg>${rdBtn_NewCstmr}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:18.774" level="INFO">Clicking element 'xpath://button[contains(text(),'ADD TERM')]'.</msg>
-<status status="PASS" starttime="20210831 17:18:18.774" endtime="20210831 17:18:19.508"/>
+<msg timestamp="20210903 14:15:54.050" level="INFO">Clicking element 'id:NEW_CUSTOMER'.</msg>
+<status status="PASS" starttime="20210903 14:15:54.049" endtime="20210903 14:15:54.315"/>
 </kw>
-<status status="PASS" starttime="20210831 17:18:15.638" endtime="20210831 17:18:19.508"/>
+<status status="PASS" starttime="20210903 14:15:54.017" endtime="20210903 14:15:54.315"/>
 </kw>
-<kw name="Edit New Customer Offer Name" library="res_camp_newCustomer">
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${fld_offerName}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:18:19.508" endtime="20210831 17:18:19.527"/>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<arg>${fld_offerName}</arg>
-<arg>${newCustomerName_edit}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:19.527" level="INFO">Typing text 'NewCustomerPromo_Edited' into text field 'id:promotionName'.</msg>
-<status status="PASS" starttime="20210831 17:18:19.527" endtime="20210831 17:18:19.751"/>
-</kw>
-<status status="PASS" starttime="20210831 17:18:19.508" endtime="20210831 17:18:19.751"/>
-</kw>
-<kw name="Edit Offer Value" library="res_camp_newCustomer">
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${fld_offerValue}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:18:19.752" endtime="20210831 17:18:19.767"/>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<arg>${fld_offerValue}</arg>
-<arg>${offerValue_Edit}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:19.768" level="INFO">Typing text '1750000' into text field 'id:promotionValue'.</msg>
-<status status="PASS" starttime="20210831 17:18:19.767" endtime="20210831 17:18:19.875"/>
-</kw>
-<status status="PASS" starttime="20210831 17:18:19.751" endtime="20210831 17:18:19.875"/>
-</kw>
-<kw name="Edit Minimum Spend" library="res_camp_newCustomer">
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${fld_minSpend}</arg>
-<arg>${delay}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:18:19.876" endtime="20210831 17:18:19.891"/>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<arg>${fld_minSpend}</arg>
-<arg>${minSpendEdit}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:19.892" level="INFO">Typing text '10000' into text field 'id:promotionMinimumSpending'.</msg>
-<status status="PASS" starttime="20210831 17:18:19.891" endtime="20210831 17:18:19.996"/>
-</kw>
-<status status="PASS" starttime="20210831 17:18:19.875" endtime="20210831 17:18:19.996"/>
-</kw>
-<kw name="Click Save Edit" library="res_camp_newCustomer">
+<kw name="Click Next button" library="res_camp_newCustomer">
 <kw name="Scroll Element Into View" library="Selenium2Library">
-<arg>${btn_saveEdit}</arg>
+<arg>${btn_next}</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20210831 17:18:19.996" endtime="20210831 17:18:20.285"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210831 17:18:22.287" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210831 17:18:20.285" endtime="20210831 17:18:22.287"/>
+<status status="PASS" starttime="20210903 14:15:54.315" endtime="20210903 14:15:54.601"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${btn_saveEdit}</arg>
+<arg>${btn_next}</arg>
 <arg>${delay}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20210831 17:18:22.288" endtime="20210831 17:18:22.332"/>
+<status status="PASS" starttime="20210903 14:15:54.601" endtime="20210903 14:15:54.623"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
-<arg>${btn_saveEdit}</arg>
+<arg>${btn_next}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:22.332" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[2]/a[1]'.</msg>
-<status status="PASS" starttime="20210831 17:18:22.332" endtime="20210831 17:18:22.787"/>
+<msg timestamp="20210903 14:15:54.624" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/div[1]/ul[1]/li[2]/a[1]'.</msg>
+<status status="PASS" starttime="20210903 14:15:54.623" endtime="20210903 14:15:55.039"/>
 </kw>
+<status status="PASS" starttime="20210903 14:15:54.315" endtime="20210903 14:15:55.040"/>
+</kw>
+<status status="PASS" starttime="20210903 14:15:31.669" endtime="20210903 14:15:55.040"/>
+</kw>
+<kw name="New Customer =&gt; Free Gift =&gt; Step 2">
+<kw name="Input New Customer Name" library="res_camp_newCustomer">
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210831 17:18:27.788" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210831 17:18:22.787" endtime="20210831 17:18:27.788"/>
+<msg timestamp="20210903 14:16:00.041" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210903 14:15:55.040" endtime="20210903 14:16:00.042"/>
 </kw>
-<status status="PASS" starttime="20210831 17:18:19.996" endtime="20210831 17:18:27.789"/>
-</kw>
-<kw name="Success Edit Message is displayed" library="res_camp_newCustomer">
-<kw name="Wait Until Page Contains" library="Selenium2Library">
-<arg>${sucEditMsg}</arg>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_offerName}</arg>
 <arg>${delay}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20210831 17:18:27.791" endtime="20210831 17:18:27.828"/>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:00.043" endtime="20210903 14:16:00.082"/>
 </kw>
-<kw name="Page Should Contain" library="Selenium2Library">
-<arg>${sucEditMsg}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20210831 17:18:27.839" level="INFO">Current page contains text 'Your Campaign has been updated and will be visible by your customers at the appointed time.'.</msg>
-<status status="PASS" starttime="20210831 17:18:27.828" endtime="20210831 17:18:27.839"/>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_offerName}</arg>
+<arg>${newCustomerName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:00.082" level="INFO">Typing text 'NewCustomerPromo_Auto' into text field 'id:promotionName'.</msg>
+<status status="PASS" starttime="20210903 14:16:00.082" endtime="20210903 14:16:00.285"/>
+</kw>
+<status status="PASS" starttime="20210903 14:15:55.040" endtime="20210903 14:16:00.285"/>
+</kw>
+<kw name="Select Free Gift Type" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${drpdwn_offerType}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:00.285" endtime="20210903 14:16:00.302"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
-<arg>${btn_closeEdit}</arg>
+<arg>${drpdwn_offerType}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210831 17:18:27.840" level="INFO">Clicking element 'xpath://body/div[3]/div[2]/ul[1]/li[1]/button[1]'.</msg>
-<status status="PASS" starttime="20210831 17:18:27.839" endtime="20210831 17:18:28.312"/>
+<msg timestamp="20210903 14:16:00.303" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/form[1]/ul[1]/li[2]/span[1]/span[1]/span[1]/span[1]'.</msg>
+<status status="PASS" starttime="20210903 14:16:00.303" endtime="20210903 14:16:00.821"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${opt_freeGift}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:00.821" endtime="20210903 14:16:00.857"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${opt_freeGift}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:00.857" level="INFO">Clicking element 'xpath://body[1]/span[1]/span[1]/span[2]/ul[@id='select2-promotionTypeId-results']/li[2]'.</msg>
+<status status="PASS" starttime="20210903 14:16:00.857" endtime="20210903 14:16:01.049"/>
+</kw>
+<status status="PASS" starttime="20210903 14:16:00.285" endtime="20210903 14:16:01.049"/>
+</kw>
+<kw name="Input Offer Value" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_offerValue}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:01.049" endtime="20210903 14:16:01.067"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_offerValue}</arg>
+<arg>${offerValue}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:01.067" level="INFO">Typing text '2000000' into text field 'id:promotionValue'.</msg>
+<status status="PASS" starttime="20210903 14:16:01.067" endtime="20210903 14:16:01.135"/>
+</kw>
+<status status="PASS" starttime="20210903 14:16:01.049" endtime="20210903 14:16:01.135"/>
+</kw>
+<kw name="Input Minimum Spending" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_minSpend}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:01.135" endtime="20210903 14:16:01.152"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_minSpend}</arg>
+<arg>${minSpend}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:01.153" level="INFO">Typing text '5000' into text field 'id:promotionMinimumSpending'.</msg>
+<status status="PASS" starttime="20210903 14:16:01.152" endtime="20210903 14:16:01.210"/>
+</kw>
+<status status="PASS" starttime="20210903 14:16:01.135" endtime="20210903 14:16:01.211"/>
+</kw>
+<kw name="Select Offer Period" library="res_camp_newCustomer">
+<kw name="Get Current Date" library="DateTime">
+<var>${slct_StrtDate}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210903 14:16:01.211" level="INFO">${slct_StrtDate} = 2021-09-03 14:16:01.211</msg>
+<status status="PASS" starttime="20210903 14:16:01.211" endtime="20210903 14:16:01.211"/>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<var>${startDate}</var>
+<arg>${slct_StrtDate}</arg>
+<arg>result_format=%d</arg>
+<doc>Converts between supported `date formats`.</doc>
+<msg timestamp="20210903 14:16:01.214" level="INFO">${startDate} = 03</msg>
+<status status="PASS" starttime="20210903 14:16:01.211" endtime="20210903 14:16:01.214"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${intStrDate}</var>
+<arg>${startDate}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20210903 14:16:01.215" level="INFO">${intStrDate} = 3</msg>
+<status status="PASS" starttime="20210903 14:16:01.215" endtime="20210903 14:16:01.215"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210831 17:18:30.315" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210831 17:18:28.312" endtime="20210831 17:18:30.316"/>
+<msg timestamp="20210903 14:16:03.216" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210903 14:16:01.215" endtime="20210903 14:16:03.217"/>
 </kw>
-<status status="PASS" starttime="20210831 17:18:27.790" endtime="20210831 17:18:30.317"/>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${fld_offerStrdate}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:03.219" level="INFO">Clicking element 'name:promotionStart'.</msg>
+<status status="PASS" starttime="20210903 14:16:03.218" endtime="20210903 14:16:03.500"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:52.049" endtime="20210831 17:18:30.317"/>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[@class='ui-datepicker-calendar']//*[contains(text(),'${intStrDate}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:03.500" level="INFO">Clicking element '//*[@class='ui-datepicker-calendar']//*[contains(text(),'3')]'.</msg>
+<status status="PASS" starttime="20210903 14:16:03.500" endtime="20210903 14:16:03.723"/>
 </kw>
-<status status="PASS" starttime="20210831 17:17:52.045" endtime="20210831 17:18:30.319"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 14:16:05.723" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210903 14:16:03.723" endtime="20210903 14:16:05.724"/>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<var>${slct_EndDate}</var>
+<arg>${slct_StrtDate}</arg>
+<arg>7 Days</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<msg timestamp="20210903 14:16:05.727" level="INFO">${slct_EndDate} = 2021-09-10 14:16:01.211</msg>
+<status status="PASS" starttime="20210903 14:16:05.725" endtime="20210903 14:16:05.727"/>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<var>${EndDate}</var>
+<arg>${slct_EndDate}</arg>
+<arg>result_format=%d</arg>
+<doc>Converts between supported `date formats`.</doc>
+<msg timestamp="20210903 14:16:05.728" level="INFO">${EndDate} = 10</msg>
+<status status="PASS" starttime="20210903 14:16:05.727" endtime="20210903 14:16:05.729"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${int}</var>
+<arg>${EndDate}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20210903 14:16:05.729" level="INFO">${int} = 10</msg>
+<status status="PASS" starttime="20210903 14:16:05.729" endtime="20210903 14:16:05.730"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${fld_offerEnddate}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:05.731" level="INFO">Clicking element 'name:promotionExpired'.</msg>
+<status status="PASS" starttime="20210903 14:16:05.730" endtime="20210903 14:16:05.820"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[@class='ui-datepicker-calendar']//*[contains(text(),'${int}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:05.820" level="INFO">Clicking element '//*[@class='ui-datepicker-calendar']//*[contains(text(),'10')]'.</msg>
+<status status="PASS" starttime="20210903 14:16:05.820" endtime="20210903 14:16:05.875"/>
+</kw>
+<status status="PASS" starttime="20210903 14:16:01.211" endtime="20210903 14:16:05.875"/>
+</kw>
+<kw name="Click Upload Image" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_newC_uploadImage}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:05.875" endtime="20210903 14:16:05.894"/>
+</kw>
+<kw name="Choose File" library="Selenium2Library">
+<arg>${btn_newC_uploadImage}</arg>
+<arg>${CampaignImage}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20210903 14:16:05.895" level="INFO">Sending /Users/machruk/Documents/test.jpg to browser.</msg>
+<status status="PASS" starttime="20210903 14:16:05.894" endtime="20210903 14:16:05.970"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210903 14:16:08.973" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20210903 14:16:05.970" endtime="20210903 14:16:08.974"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_Crop}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:08.975" endtime="20210903 14:16:09.016"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>${btn_Crop}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:09.016" level="INFO">Clicking button 'xpath://body[1]/div[1]/div[2]/ul[1]/li[2]/button[1]'.</msg>
+<status status="PASS" starttime="20210903 14:16:09.016" endtime="20210903 14:16:09.219"/>
+</kw>
+<status status="PASS" starttime="20210903 14:16:05.875" endtime="20210903 14:16:09.219"/>
+</kw>
+<kw name="Click Next button" library="res_camp_newCustomer">
+<kw name="Scroll Element Into View" library="Selenium2Library">
+<arg>${btn_next}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20210903 14:16:09.220" endtime="20210903 14:16:09.552"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${btn_next}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210903 14:16:09.552" endtime="20210903 14:16:09.572"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_next}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210903 14:16:09.572" level="INFO">Clicking element 'xpath://body[1]/ul[1]/li[2]/section[1]/div[1]/ul[1]/li[2]/a[1]'.</msg>
+<status status="PASS" starttime="20210903 14:16:09.572" endtime="20210903 14:16:09.641"/>
+</kw>
+<status status="PASS" starttime="20210903 14:16:09.219" endtime="20210903 14:16:09.642"/>
+</kw>
+<status status="PASS" starttime="20210903 14:15:55.040" endtime="20210903 14:16:09.642"/>
+</kw>
+<kw name="New Customer =&gt; Free Gift =&gt; Step 3">
+<kw name="Add T&amp;C" library="res_camp_newCustomer">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${fld_addTerm}</arg>
+<arg>${delay}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210903 14:16:20.292" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210903 14:16:19.871" endtime="20210903 14:16:20.292"/>
+</kw>
+<msg timestamp="20210903 14:16:20.294" level="FAIL">Element with locator 'xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[2]/li[1]/textarea[1]' not found.</msg>
+<status status="FAIL" starttime="20210903 14:16:09.642" endtime="20210903 14:16:20.294"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${fld_addTerm}</arg>
+<arg>${addTermText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210903 14:16:20.294" endtime="20210903 14:16:20.294"/>
+</kw>
+<status status="FAIL" starttime="20210903 14:16:09.642" endtime="20210903 14:16:20.295"/>
+</kw>
+<kw name="Click Publish" library="res_camp_newCustomer">
+<status status="NOT RUN" starttime="20210903 14:16:20.295" endtime="20210903 14:16:20.295"/>
+</kw>
+<kw name="Success Message is displayed" library="res_camp_newCustomer">
+<status status="NOT RUN" starttime="20210903 14:16:20.295" endtime="20210903 14:16:20.295"/>
+</kw>
+<status status="FAIL" starttime="20210903 14:16:09.642" endtime="20210903 14:16:20.295"/>
+</kw>
+<status status="FAIL" starttime="20210903 14:15:31.667" endtime="20210903 14:16:20.296">Element with locator 'xpath://body[1]/ul[1]/li[2]/section[3]/ul[1]/li[1]/ul[1]/li[1]/div[2]/ul[2]/li[1]/textarea[1]' not found.</status>
 </test>
 <doc>Verify create New Customer Offer is successfully</doc>
-<status status="PASS" starttime="20210831 17:17:50.687" endtime="20210831 17:18:30.325"/>
+<status status="FAIL" starttime="20210903 14:15:28.187" endtime="20210903 14:16:20.296"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="newCust freeGift">newCust freeGift</stat>
+<stat pass="1" fail="1" skip="0" id="s1" name="newCust freeGift">newCust freeGift</stat>
 </suite>
 </statistics>
 <errors>
